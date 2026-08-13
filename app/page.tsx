@@ -69,54 +69,54 @@ export default function Home() {
         <section className="hero section-grid">
           <div className="shell hero-layout">
             <div className="hero-copy-block">
-              <div className="status-pill"><span /> AI-powered business systems</div>
+              <div className="status-pill"><span /> Smarter systems for growing businesses</div>
               <h1>Systems that make your business <em>move.</em></h1>
-              <p className="hero-lede">We design and build AI agents, automation and software that eliminate manual work, connect fragmented operations and create infrastructure for scale.</p>
+              <p className="hero-lede">We build practical tools that save your team time, respond to customers faster and keep work moving without constant manual follow-up.</p>
               <div className="hero-actions">
                 <a className="button button--blue" href="#assessment">Start a project <span>↗</span></a>
                 <a className="text-link" href="#systems">Explore our systems <span>↓</span></a>
               </div>
               <div className="hero-services" aria-label="Core services">
-                <span>AI agents</span><i />
-                <span>Automation</span><i />
-                <span>Software</span><i />
-                <span>Business systems</span>
+                <span>Faster follow-up</span><i />
+                <span>Less admin</span><i />
+                <span>Connected tools</span><i />
+                <span>Room to grow</span>
               </div>
             </div>
 
-            <div className="command-system" aria-label="Demonstration of an AI-powered operations command system">
+            <div className="command-system" aria-label="Example of an automated lead follow-up workflow">
               <div className="command-chrome">
                 <div className="chrome-dots"><i /><i /><i /></div>
-                <span>DELTA / OPERATIONS ENGINE</span>
-                <span className="demo-state"><i /> DEMO ENVIRONMENT</span>
+                <span>LEAD FOLLOW-UP AUTOMATION</span>
+                <span className="demo-state"><i /> EXAMPLE WORKFLOW</span>
               </div>
               <div className="command-body">
                 <aside className="command-sidebar">
                   <div className="sidebar-mark"><DeltaMark compact /></div>
-                  <button className="side-item side-item--active" aria-label="Operations overview"><span>⌁</span><small>Overview</small></button>
-                  <button className="side-item" aria-label="Work queue"><span>≡</span><small>Queue</small></button>
-                  <button className="side-item" aria-label="AI agents"><span>AI</span><small>Agents</small></button>
-                  <button className="side-item" aria-label="System integrations"><span>↔</span><small>Systems</small></button>
+                  <button className="side-item side-item--active" aria-label="New leads"><span>⌁</span><small>Leads</small></button>
+                  <button className="side-item" aria-label="Replies"><span>↗</span><small>Replies</small></button>
+                  <button className="side-item" aria-label="Booked calls"><span>✓</span><small>Booked</small></button>
+                  <button className="side-item" aria-label="Results"><span>↗</span><small>Results</small></button>
                   <button className="side-item side-item--bottom" aria-label="Settings"><span>⚙</span><small>Settings</small></button>
                 </aside>
                 <div className="command-main">
-                  <div className="command-heading"><div><small>OPERATIONS / TODAY</small><strong>Work moving through the system</strong></div><button><span>+</span> New workflow</button></div>
+                  <div className="command-heading"><div><small>NEW LEAD / JUST NOW</small><strong>From new enquiry to booked call</strong></div><button>View result <span>↗</span></button></div>
                   <div className="command-layout">
                     <section className="workstream-panel">
-                      <div className="panel-title"><span>Active workstream</span><small>LIVE</small></div>
-                      <div className="workstream-focus"><span className="focus-icon">IN</span><div><small>INBOUND REQUEST</small><strong>New project inquiry</strong><p>Website · Company profile · Requirements</p></div><i>Received now</i></div>
-                      <div className="event-line event-line--done"><span>01</span><div><strong>Context captured</strong><small>Company and request data normalized</small></div><i>DONE</i></div>
-                      <div className="event-line event-line--active"><span>02</span><div><strong>AI agent reviewing fit</strong><small>Need · urgency · operational value</small></div><i>ACTIVE</i></div>
-                      <div className="event-line"><span>03</span><div><strong>Route next action</strong><small>Owner, CRM stage and response path</small></div><i>QUEUED</i></div>
+                      <div className="panel-title"><span>What happens automatically</span><small>LIVE</small></div>
+                      <div className="workstream-focus"><span className="focus-icon">IN</span><div><small>NEW ENQUIRY</small><strong>A new lead fills your form</strong><p>Name · need · contact details</p></div><i>Just now</i></div>
+                      <div className="event-line event-line--done"><span>01</span><div><strong>Details saved</strong><small>No copying or manual data entry</small></div><i>DONE</i></div>
+                      <div className="event-line event-line--active"><span>02</span><div><strong>Personal reply sent</strong><small>The lead gets a quick, helpful response</small></div><i>SENT</i></div>
+                      <div className="event-line"><span>03</span><div><strong>Call booking offered</strong><small>Your calendar link is sent automatically</small></div><i>NEXT</i></div>
                     </section>
                     <aside className="intelligence-panel">
-                      <div className="panel-title"><span>Agent analysis</span><small>EXPLAINABLE</small></div>
-                      <div className="analysis-score"><div className="score-ring"><span>High</span><small>fit</small></div><div><small>RECOMMENDATION</small><strong>Schedule discovery</strong><p>Clear operational problem and meaningful integration scope.</p></div></div>
-                      <div className="signal-list"><span><i /> Existing operation</span><span><i /> Manual process identified</span><span><i /> Decision owner present</span></div>
-                      <div className="human-gate"><span>HUMAN REVIEW</span><strong>Approval required before outreach</strong><button>Review decision <i>↗</i></button></div>
+                      <div className="panel-title"><span>Business outcome</span><small>RESULT</small></div>
+                      <div className="analysis-score"><div className="score-ring"><span>Fast</span><small>reply</small></div><div><small>THE RESULT</small><strong>Respond while interest is high</strong><p>Your team follows up in minutes, even when everyone is busy.</p></div></div>
+                      <div className="signal-list"><span><i /> Every lead gets a reply</span><span><i /> Your team saves admin time</span><span><i /> More calls get booked</span></div>
+                      <div className="human-gate"><span>YOU STAY IN CONTROL</span><strong>Your team can review or take over at any time.</strong><button>See the lead <i>↗</i></button></div>
                     </aside>
                   </div>
-                  <div className="system-health"><div><span>CONNECTED SYSTEMS</span><strong>Form · CRM · Email · Calendar</strong></div><div><span>AUTOMATION MODE</span><strong>Human-controlled</strong></div><div><span>SYSTEM HEALTH</span><strong><i /> Operational</strong></div></div>
+                  <div className="system-health"><div><span>WORKS WITH</span><strong>Form · Email · CRM · Calendar</strong></div><div><span>TIME SAVED</span><strong>Hours every week</strong></div><div><span>STATUS</span><strong><i /> Running</strong></div></div>
                 </div>
               </div>
             </div>
