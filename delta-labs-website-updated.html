@@ -1,0 +1,1331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delta Labs — Engineering Change</title>
+<meta name="description" content="Delta Labs builds AI, software, automation and intelligent business systems designed to create measurable change.">
+
+<style>
+/* =========================================================
+   DELTA LABS — DESIGN TOKENS
+   ========================================================= */
+:root {
+  --bg: #F7F8FA;
+  --surface: #FFFFFF;
+  --surface-subtle: #F1F3F5;
+
+  --text-primary: #111318;
+  --text-secondary: #5F6874;
+  --text-muted: #858E9B;
+
+  --border: #E4E7EB;
+  --border-strong: #D8DDE3;
+
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+  --accent-soft: #EFF6FF;
+
+  --success: #16A34A;
+  --danger: #DC2626;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  --shadow-sm: 0 4px 14px rgba(17, 19, 24, 0.05);
+  --shadow-md: 0 12px 35px rgba(17, 19, 24, 0.07);
+  --shadow-lg: 0 24px 70px rgba(17, 19, 24, 0.09);
+
+  --container: 1180px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.container {
+  width: min(calc(100% - 48px), var(--container));
+  margin-inline: auto;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+.site-header {
+  position: sticky;
+  top: 18px;
+  z-index: 50;
+  padding-top: 18px;
+}
+
+.navbar {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px 0 22px;
+  background: rgba(255,255,255,.94);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+  min-width: 210px;
+}
+
+.brand-mark {
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+}
+
+.brand-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.logo-delta {
+  fill: none;
+  stroke: var(--text-primary);
+  stroke-width: 2.8;
+  stroke-linejoin: miter;
+}
+
+.logo-trace {
+  fill: none;
+  stroke: var(--text-secondary);
+  stroke-width: 1.8;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.logo-trace.active {
+  stroke: var(--accent);
+}
+
+.logo-node {
+  fill: var(--surface);
+  stroke: var(--text-secondary);
+  stroke-width: 1.5;
+}
+
+.logo-node.active {
+  stroke: var(--accent);
+}
+
+.brand-name {
+  font-size: 17px;
+  font-weight: 760;
+  letter-spacing: .16em;
+}
+
+.brand-labs {
+  margin-left: 5px;
+  color: var(--text-secondary);
+  font-weight: 450;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.nav-links a {
+  padding: 10px 14px;
+  border-radius: 9px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 520;
+  transition: .2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+  background: var(--surface-subtle);
+}
+
+.nav-cta,
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #fff;
+  background: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  border-radius: 10px;
+  padding: 11px 17px;
+  font-size: 13px;
+  font-weight: 750;
+  transition: .2s ease;
+  box-shadow: 0 4px 12px rgba(17,19,24,.12);
+}
+
+.nav-cta:hover,
+.button-primary:hover {
+  transform: translateY(-1px);
+  background: #20232a;
+}
+
+.nav-action {
+  min-width: 210px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  position: relative;
+  min-height: 760px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(17,19,24,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,19,24,.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+}
+
+.hero-signal {
+  position: absolute;
+  width: 680px;
+  height: 680px;
+  border: 1px solid rgba(37,99,235,.08);
+  border-radius: 50%;
+  transform: translateY(15px);
+  pointer-events: none;
+}
+
+.hero-signal::before,
+.hero-signal::after {
+  content: "";
+  position: absolute;
+  inset: 90px;
+  border: 1px solid rgba(37,99,235,.07);
+  border-radius: 50%;
+}
+
+.hero-signal::after {
+  inset: 180px;
+  border-color: rgba(37,99,235,.08);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(900px, 100%);
+  padding: 130px 0 110px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "Δ";
+  color: var(--accent);
+  font-size: 15px;
+  letter-spacing: 0;
+}
+
+.hero h1 {
+  max-width: 900px;
+  margin: 20px auto 22px;
+  font-size: clamp(48px, 7vw, 84px);
+  line-height: .96;
+  letter-spacing: -.055em;
+  font-weight: 700;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero-copy {
+  max-width: 650px;
+  margin: auto;
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 11px 17px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .2s ease;
+}
+
+.button-secondary:hover {
+  border-color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.hero-system {
+  position: relative;
+  width: min(720px, 100%);
+  height: 150px;
+  margin: 74px auto 0;
+}
+
+.system-line {
+  position: absolute;
+  height: 1px;
+  background: var(--border-strong);
+  transform-origin: left center;
+}
+
+.system-line.one {
+  width: 220px;
+  left: 70px;
+  top: 70px;
+  transform: rotate(-10deg);
+}
+
+.system-line.two {
+  width: 220px;
+  right: 70px;
+  top: 70px;
+  transform: rotate(10deg);
+  transform-origin: right center;
+}
+
+.system-line.three {
+  width: 160px;
+  left: 50%;
+  top: 82px;
+  transform: translateX(-50%);
+  background: var(--accent);
+}
+
+.system-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--accent);
+  background: var(--surface);
+  border-radius: 50%;
+}
+
+.system-node.left { left: 58px; top: 59px; }
+.system-node.center { left: calc(50% - 4px); top: 78px; }
+.system-node.right { right: 58px; top: 59px; }
+
+.system-delta {
+  position: absolute;
+  left: calc(50% - 30px);
+  top: 42px;
+  width: 60px;
+  height: 60px;
+}
+
+.system-delta svg { width: 100%; height: 100%; }
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+section {
+  scroll-margin-top: 110px;
+}
+
+.section {
+  padding: var(--space-32) 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 56px;
+}
+
+.section-kicker {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  max-width: 680px;
+  margin: 0;
+  font-size: clamp(34px, 4.2vw, 54px);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.section-description {
+  max-width: 470px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   CAPABILITIES
+   ========================================================= */
+.capabilities {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.capability-card {
+  position: relative;
+  min-height: 290px;
+  padding: 30px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: .25s ease;
+  overflow: hidden;
+}
+
+.capability-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.card-number {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: .12em;
+}
+
+.card-icon {
+  width: 42px;
+  height: 42px;
+  margin: 52px 0 28px;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.capability-card h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  letter-spacing: -.025em;
+}
+
+.capability-card p {
+  margin: 0;
+  max-width: 320px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   THE DELTA
+   ========================================================= */
+.delta-section {
+  background: var(--bg);
+}
+
+.delta-layout {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.delta-visual {
+  position: relative;
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(rgba(17,19,24,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,19,24,.025) 1px, transparent 1px),
+    var(--surface);
+  background-size: 32px 32px;
+  overflow: hidden;
+}
+
+.delta-visual::before {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(37,99,235,.13);
+  border-radius: 50%;
+}
+
+.delta-visual svg {
+  position: relative;
+  z-index: 2;
+  width: 180px;
+  height: 180px;
+}
+
+.delta-copy .section-title {
+  margin-bottom: 24px;
+}
+
+.delta-copy p {
+  color: var(--text-secondary);
+  font-size: 17px;
+  line-height: 1.75;
+  margin: 0 0 18px;
+}
+
+.delta-equation {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.delta-equation strong {
+  color: var(--accent);
+  font-size: 22px;
+}
+
+/* =========================================================
+   WORK
+   ========================================================= */
+.work {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.work-card {
+  min-height: 350px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.work-visual {
+  min-height: 190px;
+  margin-bottom: 26px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background:
+    linear-gradient(rgba(17,19,24,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,19,24,.025) 1px, transparent 1px),
+    var(--surface-subtle);
+  background-size: 24px 24px;
+  display: grid;
+  place-items: center;
+}
+
+.work-visual .mini-system {
+  width: 68%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mini-box {
+  width: 58px;
+  height: 42px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.mini-connector {
+  flex: 1;
+  height: 1px;
+  margin: 0 8px;
+  background: var(--accent);
+}
+
+.work-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.work-meta h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.work-meta p {
+  max-width: 430px;
+  margin: 7px 0 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.work-arrow {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.process-step {
+  padding: 30px;
+  min-height: 230px;
+  border-right: 1px solid var(--border);
+}
+
+.process-step:last-child {
+  border-right: 0;
+}
+
+.process-number {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.process-step h3 {
+  margin: 48px 0 10px;
+  font-size: 21px;
+}
+
+.process-step p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   LABS
+   ========================================================= */
+.labs {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.lab-panel {
+  position: relative;
+  padding: 56px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--text-primary);
+  color: #fff;
+}
+
+.lab-panel::after {
+  content: "Δ";
+  position: absolute;
+  right: 5%;
+  bottom: -50px;
+  font-size: 300px;
+  line-height: 1;
+  color: rgba(255,255,255,.025);
+}
+
+.lab-panel .section-kicker {
+  color: #60A5FA;
+}
+
+.lab-panel h2 {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 0 18px;
+  font-size: clamp(34px, 4vw, 54px);
+  letter-spacing: -.045em;
+  line-height: 1.02;
+}
+
+.lab-panel p {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0;
+  color: #A8B0BC;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.lab-tags {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.lab-tag {
+  padding: 9px 12px;
+  border: 1px solid #2D333D;
+  border-radius: 9px;
+  color: #D7DBE1;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+.final-cta {
+  text-align: center;
+  padding: 150px 0;
+}
+
+.final-cta h2 {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.final-cta p {
+  max-width: 560px;
+  margin: 0 auto 32px;
+  color: var(--text-secondary);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-brand {
+  font-size: 14px;
+  font-weight: 760;
+  letter-spacing: .14em;
+}
+
+.footer-note {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .brand, .nav-action { min-width: auto; }
+
+  .capability-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .delta-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-step:nth-child(2) {
+    border-right: 0;
+  }
+
+  .process-step:nth-child(-n+2) {
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 680px) {
+  .container {
+    width: min(calc(100% - 32px), var(--container));
+  }
+
+  .site-header { top: 10px; padding-top: 10px; }
+
+  .navbar {
+    height: 66px;
+    padding-left: 14px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+  }
+
+  .nav-action { display: none; }
+
+  .hero {
+    min-height: 700px;
+  }
+
+  .hero-content {
+    padding: 100px 0 80px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero-copy {
+    font-size: 16px;
+  }
+
+  .hero-system {
+    transform: scale(.82);
+    margin-top: 50px;
+  }
+
+  .section {
+    padding: 88px 0;
+  }
+
+  .section-header {
+    display: block;
+    margin-bottom: 36px;
+  }
+
+  .section-description {
+    margin-top: 18px;
+  }
+
+  .capability-grid,
+  .work-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .process-step:last-child {
+    border-bottom: 0;
+  }
+
+  .lab-panel {
+    padding: 34px 26px;
+  }
+
+  .final-cta {
+    padding: 100px 0;
+  }
+
+  .footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =======================================================
+     NAVIGATION
+     ======================================================= -->
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-label="Delta Labs logo">
+          <svg viewBox="0 0 100 100" role="img">
+            <!-- Central Delta -->
+            <path class="logo-delta" d="M50 13 L76 76 L24 76 Z"/>
+            <path class="logo-delta" d="M50 31 L63 63 L37 63 Z"/>
+
+            <!-- Circuit network -->
+            <path class="logo-trace" d="M25 43 H13 L8 38 H3"/>
+            <circle class="logo-node" cx="3" cy="38" r="3"/>
+
+            <path class="logo-trace active" d="M31 51 H18 L13 46 H7"/>
+            <circle class="logo-node active" cx="7" cy="46" r="3"/>
+
+            <path class="logo-trace" d="M27 60 H15 L10 65 H4"/>
+            <circle class="logo-node" cx="4" cy="65" r="3"/>
+
+            <path class="logo-trace" d="M75 43 H87 L92 38 H97"/>
+            <circle class="logo-node" cx="97" cy="38" r="3"/>
+
+            <path class="logo-trace active" d="M69 51 H82 L87 46 H93"/>
+            <circle class="logo-node active" cx="93" cy="46" r="3"/>
+
+            <path class="logo-trace" d="M73 60 H85 L90 65 H96"/>
+            <circle class="logo-node" cx="96" cy="65" r="3"/>
+
+            <path class="logo-trace" d="M42 75 V84 L37 89 V96"/>
+            <circle class="logo-node" cx="37" cy="96" r="3"/>
+
+            <path class="logo-trace active" d="M50 75 V90 L50 97"/>
+            <circle class="logo-node active" cx="50" cy="97" r="3"/>
+
+            <path class="logo-trace" d="M58 75 V84 L63 89 V96"/>
+            <circle class="logo-node" cx="63" cy="96" r="3"/>
+          </svg>
+        </span>
+
+        <span class="brand-name">
+          DELTA<span class="brand-labs">LABS</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#capabilities">Solutions</a>
+        <a href="#labs">Labs</a>
+        <a href="#about">About</a>
+      </div>
+
+      <div class="nav-action">
+        <a class="nav-cta" href="#contact">Start a project →</a>
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-signal"></div>
+
+    <div class="container hero-content">
+      <div class="eyebrow">Delta Labs</div>
+
+      <h1>Engineering <span>change.</span></h1>
+
+      <p class="hero-copy">
+        We build AI, software, automation and intelligent business systems
+        designed to create measurable change.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button-primary" href="#contact">Start a project →</a>
+        <a class="button-secondary" href="#work">Explore our work</a>
+      </div>
+
+      <div class="hero-system" aria-hidden="true">
+        <span class="system-line one"></span>
+        <span class="system-line two"></span>
+        <span class="system-line three"></span>
+
+        <span class="system-node left"></span>
+        <span class="system-node center"></span>
+        <span class="system-node right"></span>
+
+        <span class="system-delta">
+          <svg viewBox="0 0 100 100">
+            <path class="logo-delta" d="M50 13 L76 76 L24 76 Z"/>
+            <path class="logo-delta" d="M50 31 L63 63 L37 63 Z"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CAPABILITIES
+       ===================================================== -->
+  <section id="capabilities" class="section capabilities">
+    <div class="container">
+
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">What we build</div>
+          <h2 class="section-title">Technology that changes how business works.</h2>
+        </div>
+
+        <p class="section-description">
+          From intelligent agents to custom software, we connect technology,
+          data and operations into systems built for scale.
+        </p>
+      </div>
+
+      <div class="capability-grid">
+
+        <article class="capability-card">
+          <div class="card-number">01</div>
+          <div class="card-icon">AI</div>
+          <h3>AI Systems</h3>
+          <p>Intelligent agents, decision systems and AI workflows designed around real business logic.</p>
+        </article>
+
+        <article class="capability-card">
+          <div class="card-number">02</div>
+          <div class="card-icon">⌘</div>
+          <h3>Software</h3>
+          <p>Custom platforms and business applications engineered around the way your operation actually works.</p>
+        </article>
+
+        <article class="capability-card">
+          <div class="card-number">03</div>
+          <div class="card-icon">↗</div>
+          <h3>Automation</h3>
+          <p>Turn repetitive operations into intelligent workflows that move work without constant human intervention.</p>
+        </article>
+
+        <article class="capability-card">
+          <div class="card-number">04</div>
+          <div class="card-icon">◈</div>
+          <h3>Business Systems</h3>
+          <p>Connect data, people, software and processes into one operational system.</p>
+        </article>
+
+        <article class="capability-card">
+          <div class="card-number">05</div>
+          <div class="card-icon">Δ</div>
+          <h3>Digital Growth</h3>
+          <p>Performance and growth infrastructure that turns digital activity into measurable business outcomes.</p>
+        </article>
+
+        <article class="capability-card">
+          <div class="card-number">06</div>
+          <div class="card-icon">+</div>
+          <h3>Custom Systems</h3>
+          <p>When an existing tool isn't enough, we engineer the system your business actually needs.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       THE DELTA
+       ===================================================== -->
+  <section id="about" class="section delta-section">
+    <div class="container delta-layout">
+
+      <div class="delta-visual" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <path class="logo-delta" d="M100 18 L164 158 L36 158 Z" stroke-width="2"/>
+          <path class="logo-delta" d="M100 55 L132 128 L68 128 Z" stroke-width="2"/>
+          <path class="logo-trace active" d="M64 82 H34 L22 70 H8"/>
+          <circle class="logo-node active" cx="8" cy="70" r="5"/>
+          <path class="logo-trace" d="M136 82 H166 L178 70 H192"/>
+          <circle class="logo-node" cx="192" cy="70" r="5"/>
+          <path class="logo-trace active" d="M100 158 V182"/>
+          <circle class="logo-node active" cx="100" cy="188" r="5"/>
+        </svg>
+      </div>
+
+      <div class="delta-copy">
+        <div class="section-kicker">The idea behind Delta</div>
+        <h2 class="section-title">Change is the product.</h2>
+
+        <p>
+          In mathematics and science, Δ represents change — the difference
+          between one state and another.
+        </p>
+
+        <p>
+          That's the principle behind Delta Labs. We don't build technology
+          for technology's sake. We engineer systems that move a business
+          from where it is to where it needs to be.
+        </p>
+
+        <div class="delta-equation">
+          <strong>Δ</strong>
+          <span>Current state → engineered change → new state</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       WORK
+       ===================================================== -->
+  <section id="work" class="section work">
+    <div class="container">
+
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Selected systems</div>
+          <h2 class="section-title">Built around real problems.</h2>
+        </div>
+
+        <p class="section-description">
+          A growing portfolio of software, automation and intelligent systems.
+        </p>
+      </div>
+
+      <div class="work-grid">
+
+        <article class="work-card">
+          <div class="work-visual">
+            <div class="mini-system">
+              <span class="mini-box"></span>
+              <span class="mini-connector"></span>
+              <span class="mini-box"></span>
+              <span class="mini-connector"></span>
+              <span class="mini-box"></span>
+            </div>
+          </div>
+
+          <div class="work-meta">
+            <div>
+              <h3>Intelligent Operations</h3>
+              <p>Connected workflows that reduce manual work and give teams one operational layer.</p>
+            </div>
+            <span class="work-arrow">↗</span>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-visual">
+            <div class="mini-system">
+              <span class="mini-box"></span>
+              <span class="mini-connector"></span>
+              <span class="mini-box"></span>
+              <span class="mini-connector"></span>
+              <span class="mini-box"></span>
+            </div>
+          </div>
+
+          <div class="work-meta">
+            <div>
+              <h3>AI Business Systems</h3>
+              <p>Agents and automation designed to operate inside existing business processes.</p>
+            </div>
+            <span class="work-arrow">↗</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PROCESS
+       ===================================================== -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">How we work</div>
+          <h2 class="section-title">From problem to production.</h2>
+        </div>
+
+        <p class="section-description">
+          A practical engineering process focused on outcomes, not unnecessary complexity.
+        </p>
+      </div>
+
+      <div class="process-grid">
+
+        <article class="process-step">
+          <div class="process-number">01 / DISCOVER</div>
+          <h3>Understand</h3>
+          <p>Map the business problem, existing systems, constraints and desired outcome.</p>
+        </article>
+
+        <article class="process-step">
+          <div class="process-number">02 / ENGINEER</div>
+          <h3>Build</h3>
+          <p>Design and develop the smallest system that can create meaningful change.</p>
+        </article>
+
+        <article class="process-step">
+          <div class="process-number">03 / INTEGRATE</div>
+          <h3>Connect</h3>
+          <p>Put the system into the real workflow and connect it to the tools people already use.</p>
+        </article>
+
+        <article class="process-step">
+          <div class="process-number">04 / SCALE</div>
+          <h3>Improve</h3>
+          <p>Measure, optimize and expand the system as the business evolves.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       LABS
+       ===================================================== -->
+  <section id="labs" class="section labs">
+    <div class="container">
+
+      <div class="lab-panel">
+        <div class="section-kicker">Inside the lab</div>
+
+        <h2>We experiment with what comes next.</h2>
+
+        <p>
+          Delta Labs is also where new systems begin — AI agents, automation
+          infrastructure, internal tools, business intelligence and experimental products.
+        </p>
+
+        <div class="lab-tags">
+          <span class="lab-tag">AI Agents</span>
+          <span class="lab-tag">Automation</span>
+          <span class="lab-tag">Business Intelligence</span>
+          <span class="lab-tag">Internal Tools</span>
+          <span class="lab-tag">Experimental Products</span>
+          <span class="lab-tag">Growth Infrastructure</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FINAL CTA
+       ===================================================== -->
+  <section id="contact" class="final-cta">
+    <div class="container">
+      <div class="section-kicker">Start the change</div>
+      <h2>Have a problem worth engineering?</h2>
+      <p>
+        Tell us what isn't working. We'll help turn the problem into a system.
+      </p>
+      <a class="button-primary" href="mailto:hello@deltalabs.com">Start a conversation →</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">DELTA LABS</div>
+    <div class="footer-note">© 2026 Delta Labs. Engineering change.</div>
+  </div>
+</footer>
+
+</body>
+</html>
