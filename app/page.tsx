@@ -1,16 +1,11 @@
+import Image from "next/image";
+import deltaLogo from "../output/logo-concepts/06-interlocking-flows.png";
 import { OpportunityForm } from "./opportunity-form";
 
 function DeltaMark({ compact = false }: { compact?: boolean }) {
   return (
     <span className={`delta-mark${compact ? " delta-mark--compact" : ""}`} aria-hidden="true">
-      <svg viewBox="0 0 100 100">
-        <path className="delta-outline" d="M50 12 78 78H22L50 12Z" />
-        <path className="delta-outline" d="M50 34 63 65H37L50 34Z" />
-        <path className="delta-trace" d="M22 52H8M78 52h14M50 78v14" />
-        <circle className="delta-node" cx="7" cy="52" r="3" />
-        <circle className="delta-node" cx="93" cy="52" r="3" />
-        <circle className="delta-node" cx="50" cy="93" r="3" />
-      </svg>
+      <Image src={deltaLogo} alt="" sizes={compact ? "38px" : "72px"} />
     </span>
   );
 }

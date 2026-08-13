@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import deltaLogo from "../output/logo-concepts/06-interlocking-flows.png";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -14,6 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: base,
     title,
     description,
+    icons: { icon: deltaLogo.src, apple: deltaLogo.src },
     openGraph: { title, description, type: "website", url: base, images: [{ url: new URL("/og.png", base).toString(), width: 1536, height: 1024, alt: "Delta Labs — AI-powered business systems" }] },
     twitter: { card: "summary_large_image", title, description, images: [new URL("/og.png", base).toString()] },
   };
