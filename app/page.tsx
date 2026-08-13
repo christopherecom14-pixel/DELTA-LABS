@@ -301,6 +301,40 @@ export default function Home() {
           </div>
         </RevealSection>
 
+        <RevealSection className="social-section section-grid" id="network">
+          <div className="shell social-section-layout">
+            <div className="social-section-copy">
+              <span className="eyebrow">The signal network</span>
+              <h2>Ideas travel further<br />when they <em>move.</em></h2>
+              <p>Delta Labs is built in the open: operating lessons, working systems and useful signals for teams turning friction into infrastructure.</p>
+              <div className="social-manifesto" aria-label="What Delta Labs shares">
+                <span><i>01</i> Build notes</span>
+                <span><i>02</i> System thinking</span>
+                <span><i>03</i> Field signals</span>
+              </div>
+            </div>
+            <div className="social-console">
+              <div className="social-console-head"><span>DELTA / NETWORK</span><small><i /> 03 CHANNELS ONLINE</small></div>
+              <a className="social-channel social-channel--x" href="https://x.com/intent/post?text=Delta%20Labs%20%E2%80%94%20AI%20automation%20and%20custom%20software&url=https%3A%2F%2Fdelta-labs-engineering-change.asharautomate.chatgpt.site" target="_blank" rel="noreferrer" aria-label="Share Delta Labs on X">
+                <b aria-hidden="true">X</b>
+                <span><small>01 / LIVE SIGNALS</small><strong>Send the idea forward.</strong><p>Fast thoughts on AI, automation and the systems behind growing companies.</p></span>
+                <i aria-hidden="true">↗</i>
+              </a>
+              <a className="social-channel social-channel--linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdelta-labs-engineering-change.asharautomate.chatgpt.site" target="_blank" rel="noreferrer" aria-label="Share Delta Labs on LinkedIn">
+                <b aria-hidden="true">in</b>
+                <span><small>02 / DEEP CONTEXT</small><strong>Put the work in context.</strong><p>Practical breakdowns for operators building better business infrastructure.</p></span>
+                <i aria-hidden="true">↗</i>
+              </a>
+              <a className="social-channel social-channel--whatsapp" href="https://wa.me/?text=Delta%20Labs%20%E2%80%94%20AI%20automation%20and%20custom%20software%20https%3A%2F%2Fdelta-labs-engineering-change.asharautomate.chatgpt.site" target="_blank" rel="noreferrer" aria-label="Share Delta Labs on WhatsApp">
+                <b aria-hidden="true">W</b>
+                <span><small>03 / DIRECT LINE</small><strong>Bring someone into the loop.</strong><p>Share Delta Labs directly with the person who should see what is possible.</p></span>
+                <i aria-hidden="true">↗</i>
+              </a>
+              <div className="social-console-foot"><span>SHARE THE SIGNAL</span><span>Δ / 2026</span></div>
+            </div>
+          </div>
+        </RevealSection>
+
         <RevealSection className="section faq-section" id="faq">
           <div className="shell faq-layout"><div><span className="eyebrow">Common questions</span><h2>Before we build.</h2><p>Clear answers to the questions serious projects usually begin with.</p></div><div className="faq-list">{faqs.map(([question, answer], index) => <details key={question}><summary><span>{String(index + 1).padStart(2, "0")}</span>{question}<i>+</i></summary><p>{answer}</p></details>)}</div></div>
         </RevealSection>
@@ -314,7 +348,7 @@ export default function Home() {
       </main>
 
       <footer className="site-footer">
-        <div className="shell footer-top"><div><a className="brand brand--footer" href="#top"><DeltaMark compact /><span className="wordmark">DELTA <span>LABS</span></span></a><p>AI-powered business systems.</p></div><div><span>Explore</span><a href="#solutions">Solutions</a><a href="#systems">Portfolio</a><a href="#method">Method</a><a href="#about">About</a></div><div><span>Start</span><a href="#assessment">Start a project</a><a href="mailto:hello@deltalabs.com">Email us</a></div></div>
+        <div className="shell footer-top"><div><a className="brand brand--footer" href="#top"><DeltaMark compact /><span className="wordmark">DELTA <span>LABS</span></span></a><p>AI-powered business systems.</p></div><div><span>Explore</span><a href="#solutions">Solutions</a><a href="#systems">Portfolio</a><a href="#method">Method</a><a href="#about">About</a></div><div><span>Connect</span><a href="#network">Signal network</a><a href="#assessment">Start a project</a><a href="mailto:hello@deltalabs.com">Email us</a></div></div>
         <div className="shell footer-bottom"><span>© 2026 Delta Labs. Engineering change.</span><span>Pakistan · Serving international markets</span></div>
       </footer>
     </MotionConfig>
