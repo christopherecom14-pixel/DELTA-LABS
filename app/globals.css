@@ -115,6 +115,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .command-chrome > span:nth-child(2) { text-align: center; }
 .demo-state { justify-self: end; display: flex; align-items: center; gap: 8px; color: #68717e; }
 .demo-state i { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; box-shadow: 0 0 0 4px rgba(37,99,235,.09); }
+.demo-state i, .system-health strong i { animation: status-pulse 2.4s ease-out infinite; }
 .command-body { min-height: 566px; display: grid; grid-template-columns: 68px 1fr; }
 .command-sidebar { display: flex; flex-direction: column; align-items: center; gap: 7px; padding: 13px 8px; background: #11151b; border-right: 1px solid #292f38; }
 .sidebar-mark { width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: 10px; color: white; background: var(--blue); border-radius: 5px; }
@@ -151,7 +152,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .event-line > i { color: #8a939f; font-size: 6px; font-style: normal; font-weight: 850; letter-spacing: .08em; }
 .event-line--done > span { color: white; background: var(--green); border-color: var(--green); }
 .event-line--done > i { color: var(--green); }
-.event-line--active { background: #f8fbff; border-left-color: var(--blue); }
+.event-line--active { background: #f8fbff; border-left-color: var(--blue); animation: active-step 3s ease-in-out infinite; }
 .event-line--active > span { color: white; background: var(--blue); border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37,99,235,.09); }
 .event-line--active > i { color: var(--blue); }
 .analysis-score { display: grid; grid-template-columns: 66px 1fr; gap: 12px; align-items: center; padding: 10px 0 14px; }
@@ -178,6 +179,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .system-health span { margin-bottom: 5px; color: #8a939e; font-size: 6px; font-weight: 800; letter-spacing: .09em; }
 .system-health strong { color: #414852; font-size: 7px; }
 .system-health strong i { display: inline-block; width: 6px; height: 6px; margin-right: 5px; background: var(--green); border-radius: 50%; }
+
+@keyframes status-pulse {
+  0%, 55%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, .18); }
+  25% { box-shadow: 0 0 0 6px rgba(37, 99, 235, 0); }
+}
+
+@keyframes active-step {
+  0%, 100% { background: #f8fbff; }
+  50% { background: #eef5ff; }
+}
 
 .signal-strip { color: white; background: var(--dark); border-bottom: 1px solid var(--dark-line); }
 .signal-grid { min-height: 130px; display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); align-items: stretch; }
@@ -218,8 +229,47 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .showcase { min-height: 570px; display: flex; flex-direction: column; padding: 26px; background: var(--dark-surface); border: 1px solid var(--dark-line); border-radius: 7px; overflow: hidden; }
 .showcase--large { grid-column: 1 / -1; min-height: 630px; }
 .showcase--blue { background: var(--blue); border-color: #4b7df0; }
+.product-showcase { grid-column: 1 / -1; min-height: 700px; background: #f5f2eb; border-color: #d6d0c5; color: var(--ink); }
 .showcase-label { display: flex; justify-content: space-between; color: #7e8795; font-size: 9px; font-weight: 750; letter-spacing: .12em; }
 .showcase--blue .showcase-label { color: rgba(255,255,255,.72); }
+.product-showcase .showcase-label span:first-child { display: flex; align-items: center; gap: 8px; color: #9a6500; }
+.product-showcase .showcase-label span:first-child::before { content: ""; width: 6px; height: 6px; background: #f59e0b; border-radius: 50%; box-shadow: 0 0 0 4px rgba(245,158,11,.14); }
+.housesbase-product { flex: 1; margin: 36px 36px 30px; background: #eef0f3; border: 1px solid #c9cbd0; border-radius: 8px; box-shadow: 0 28px 65px rgba(22,24,29,.13); overflow: hidden; }
+.housesbase-chrome { height: 38px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 13px; color: #8a8e96; background: white; border-bottom: 1px solid #dddfe3; font-size: 7px; font-weight: 800; letter-spacing: .1em; }
+.housesbase-chrome > div { display: flex; gap: 5px; }
+.housesbase-chrome i { width: 6px; height: 6px; display: block; background: #d3d5d9; border-radius: 50%; }
+.housesbase-chrome small { justify-self: end; color: #18845c; font-size: 6px; }
+.housesbase-app { min-height: 360px; display: grid; grid-template-columns: 130px 1fr; }
+.housesbase-app > aside { display: flex; flex-direction: column; gap: 6px; padding: 18px 12px; color: #7f8289; background: #16181c; }
+.housesbase-app > aside strong { width: 34px; height: 34px; display: grid; place-items: center; margin: 0 0 20px 6px; color: #17191d; background: #f59e0b; border-radius: 7px; font-size: 10px; }
+.housesbase-app > aside span { padding: 10px 11px; border-radius: 4px; font-size: 8px; font-weight: 700; }
+.housesbase-app > aside .is-active { color: white; background: #292c32; }
+.housesbase-main { min-width: 0; padding: 28px; }
+.housesbase-heading { display: flex; align-items: center; justify-content: space-between; }
+.housesbase-heading small, .housesbase-heading strong { display: block; }
+.housesbase-heading small { margin-bottom: 7px; color: #a0a3aa; font-size: 7px; font-weight: 800; letter-spacing: .12em; }
+.housesbase-heading strong { color: #24262b; font-size: 17px; }
+.housesbase-heading button { min-height: 32px; padding: 0 12px; color: #201805; background: #f59e0b; border: 0; border-radius: 4px; font-size: 8px; font-weight: 800; }
+.housesbase-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 24px 0 14px; }
+.housesbase-stats span { padding: 16px; background: white; border: 1px solid #dde0e4; border-radius: 5px; }
+.housesbase-stats small, .housesbase-stats strong { display: block; }
+.housesbase-stats small { margin-bottom: 13px; color: #999da5; font-size: 6px; font-weight: 800; letter-spacing: .08em; }
+.housesbase-stats strong { color: #282a2f; font-size: 21px; }
+.housesbase-work { display: grid; grid-template-columns: 1.5fr .5fr; gap: 10px; }
+.housesbase-work > div, .housesbase-work > aside { padding: 16px; background: white; border: 1px solid #dde0e4; border-radius: 5px; }
+.housesbase-work small { display: block; margin-bottom: 12px; color: #999da5; font-size: 6px; font-weight: 800; letter-spacing: .09em; }
+.housesbase-work > div span { display: grid; grid-template-columns: 8px 1fr auto; gap: 8px; align-items: center; padding: 10px 0; border-top: 1px solid #edf0f2; }
+.housesbase-work b { color: #4a4d54; font-size: 8px; }
+.housesbase-work em { color: #9a9da3; font-size: 6px; font-style: normal; }
+.hb-dot { width: 6px; height: 6px; display: block; border-radius: 50%; }
+.hb-dot--amber { background: #f59e0b; }.hb-dot--blue { background: #4f7ee8; }.hb-dot--green { background: #20a471; }
+.housesbase-work > aside strong { display: block; color: #282a2f; font-size: 31px; }
+.housesbase-work > aside p { margin: 3px 0 14px; color: #999da5; font-size: 7px; }
+.housesbase-work > aside > i { width: 100%; height: 5px; display: block; background: linear-gradient(90deg, #f59e0b 72%, #eceef1 72%); border-radius: 8px; }
+.product-showcase-copy { border-top-color: #d6d0c5; }
+.product-showcase-copy p { color: #666971; }
+.product-link { width: fit-content; display: flex; align-items: center; gap: 9px; margin-top: 18px; color: #9a6500; font-size: 11px; font-weight: 800; text-decoration: underline; text-underline-offset: 5px; }
+.product-link span { font-size: 15px; }
 .lead-engine { flex: 1; display: grid; grid-template-columns: 1fr 48px 1fr 48px 1fr; align-items: center; gap: 0; padding: 80px 34px; }
 .lead-engine > div { min-height: 170px; padding: 26px; background: #1e2229; border: 1px solid #3a414c; border-radius: 5px; }
 .lead-engine small, .lead-engine strong, .lead-engine span { display: block; }
@@ -374,6 +424,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .solution-row .row-arrow { grid-column: 3; grid-row: 1; }
   .showcase-grid { grid-template-columns: 1fr; }
   .showcase--large { grid-column: auto; }
+  .product-showcase { grid-column: auto; }
   .lead-engine { grid-template-columns: 1fr; gap: 10px; padding: 50px 10px; }
   .lead-engine > i { width: 1px; height: 25px; justify-self: center; }
   .lead-engine > i::after { right: -3px; top: auto; bottom: -2px; }
@@ -381,6 +432,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .ops-dashboard { grid-template-columns: 1fr; }
   .showcase { min-height: 620px; }
   .showcase--large { min-height: 930px; }
+  .product-showcase { min-height: 690px; }
+  .housesbase-product { margin-inline: 0; }
   .method-steps article { padding-left: 78px; }
   .fit-panel { padding: 38px; }
   .lab-board { height: 480px; }
@@ -428,6 +481,20 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .systems-section { padding-inline: 0; }
   .showcase { padding: 18px; }
   .showcase-copy h3 { font-size: 29px; }
+  .product-showcase { min-height: 750px; }
+  .housesbase-product { margin: 28px 0 24px; }
+  .housesbase-app { grid-template-columns: 58px 1fr; }
+  .housesbase-app > aside { padding-inline: 7px; }
+  .housesbase-app > aside strong { margin-inline: auto; }
+  .housesbase-app > aside span { width: 8px; height: 8px; padding: 0; margin: 8px auto; overflow: hidden; border-radius: 50%; color: transparent; background: #474b53; }
+  .housesbase-app > aside .is-active { background: #f59e0b; }
+  .housesbase-main { padding: 18px 12px; }
+  .housesbase-heading button { font-size: 0; }
+  .housesbase-heading button::after { content: "+"; font-size: 14px; }
+  .housesbase-stats { grid-template-columns: 1fr 1fr; }
+  .housesbase-stats span:last-child { display: none; }
+  .housesbase-work { grid-template-columns: 1fr; }
+  .housesbase-work > aside { display: none; }
   .lead-engine > div { min-height: 140px; }
   .ops-dashboard { padding-block: 35px; }
   .knowledge-flow { grid-template-columns: 1fr 1fr; }
@@ -446,4 +513,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .form-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 45px 30px; }
   .footer-bottom { min-height: 105px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
