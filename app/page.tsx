@@ -1,366 +1,231 @@
+import { OpportunityForm } from "./opportunity-form";
+
+function DeltaMark({ compact = false }: { compact?: boolean }) {
+  return (
+    <span className={`delta-mark${compact ? " delta-mark--compact" : ""}`} aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <path className="delta-outline" d="M50 12 78 78H22L50 12Z" />
+        <path className="delta-outline" d="M50 34 63 65H37L50 34Z" />
+        <path className="delta-trace" d="M22 52H8M78 52h14M50 78v14" />
+        <circle className="delta-node" cx="7" cy="52" r="3" />
+        <circle className="delta-node" cx="93" cy="52" r="3" />
+        <circle className="delta-node" cx="50" cy="93" r="3" />
+      </svg>
+    </span>
+  );
+}
+
+const solutions = [
+  {
+    number: "01",
+    name: "AI agents",
+    copy: "Purpose-built agents that qualify leads, coordinate work, retrieve knowledge and support decisions inside real operations.",
+    tags: ["Lead handling", "Knowledge", "Decision support"],
+  },
+  {
+    number: "02",
+    name: "Workflow automation",
+    copy: "Connected workflows that move information, trigger actions and remove repetitive handoffs between people and tools.",
+    tags: ["Operations", "Follow-up", "Data flow"],
+  },
+  {
+    number: "03",
+    name: "Custom software",
+    copy: "Internal tools and business applications designed around how your company actually works—not a generic template.",
+    tags: ["Internal tools", "Portals", "Platforms"],
+  },
+  {
+    number: "04",
+    name: "Integrated systems",
+    copy: "A reliable operating layer connecting your CRM, communication, data, marketing and delivery stack.",
+    tags: ["Integrations", "Infrastructure", "Scale"],
+  },
+];
+
+const faqs = [
+  ["What exactly can Delta Labs automate?", "We focus on repetitive, rules-driven or information-heavy work across lead handling, reporting, customer operations, internal coordination, marketing and service delivery. The first step is mapping where time, information or revenue currently gets lost."],
+  ["Can you work with our existing software?", "Yes. We design around your current stack wherever it makes sense, connecting APIs, databases, CRMs, communication tools and internal systems instead of forcing a complete replacement."],
+  ["Do you build custom AI agents?", "Yes. We build agents around defined business responsibilities, controlled data access and clear escalation paths. The goal is dependable work inside a system—not an impressive demo with no operational role."],
+  ["How long does a project take?", "A focused automation or prototype can show value in weeks. Larger software and integrated systems move through defined architecture, build and rollout phases. After discovery, we provide a realistic scope and delivery path."],
+  ["What happens after launch?", "We can continue with monitoring, optimization, maintenance and new development. Intelligent systems improve when the underlying process, data and feedback loops are actively managed."],
+  ["Can you work alongside our team?", "Yes. We can operate as the specialist build partner alongside your leadership, operations, marketing or internal technology team, with clear ownership and documentation."],
+];
+
 export default function Home() {
   return (
     <>
       <header className="site-header">
-        <div className="container">
-          <nav className="navbar">
-      
-            <a className="brand" href="#">
-              <span className="brand-mark" aria-label="Delta Labs logo">
-                <svg viewBox="0 0 100 100" role="img">
-                  
-                  <path className="logo-delta" d="M50 13 L76 76 L24 76 Z"/>
-                  <path className="logo-delta" d="M50 31 L63 63 L37 63 Z"/>
-      
-                  
-                  <path className="logo-trace" d="M25 43 H13 L8 38 H3"/>
-                  <circle className="logo-node" cx="3" cy="38" r="3"/>
-      
-                  <path className="logo-trace active" d="M31 51 H18 L13 46 H7"/>
-                  <circle className="logo-node active" cx="7" cy="46" r="3"/>
-      
-                  <path className="logo-trace" d="M27 60 H15 L10 65 H4"/>
-                  <circle className="logo-node" cx="4" cy="65" r="3"/>
-      
-                  <path className="logo-trace" d="M75 43 H87 L92 38 H97"/>
-                  <circle className="logo-node" cx="97" cy="38" r="3"/>
-      
-                  <path className="logo-trace active" d="M69 51 H82 L87 46 H93"/>
-                  <circle className="logo-node active" cx="93" cy="46" r="3"/>
-      
-                  <path className="logo-trace" d="M73 60 H85 L90 65 H96"/>
-                  <circle className="logo-node" cx="96" cy="65" r="3"/>
-      
-                  <path className="logo-trace" d="M42 75 V84 L37 89 V96"/>
-                  <circle className="logo-node" cx="37" cy="96" r="3"/>
-      
-                  <path className="logo-trace active" d="M50 75 V90 L50 97"/>
-                  <circle className="logo-node active" cx="50" cy="97" r="3"/>
-      
-                  <path className="logo-trace" d="M58 75 V84 L63 89 V96"/>
-                  <circle className="logo-node" cx="63" cy="96" r="3"/>
-                </svg>
-              </span>
-      
-              <span className="brand-name">
-                DELTA<span className="brand-labs">LABS</span>
-              </span>
-            </a>
-      
-            <div className="nav-links">
-              <a href="#work">Work</a>
-              <a href="#capabilities">Solutions</a>
-              <a href="#labs">Labs</a>
-              <a href="#about">About</a>
-            </div>
-      
-            <div className="nav-action">
-              <a className="nav-cta" href="#contact">Start a project →</a>
-            </div>
-      
+        <div className="shell nav-shell">
+          <a className="brand" href="#top" aria-label="Delta Labs home">
+            <DeltaMark compact />
+            <span className="wordmark">DELTA <span>LABS</span></span>
+          </a>
+          <nav className="nav-links" aria-label="Primary navigation">
+            <a href="#solutions">Solutions</a>
+            <a href="#systems">Systems</a>
+            <a href="#method">Method</a>
+            <a href="#about">About</a>
           </nav>
+          <a className="button button--dark nav-cta" href="#assessment">Start a project <span>↗</span></a>
         </div>
       </header>
-      
-      <main>
-      
-        
-        <section className="hero">
-          <div className="hero-grid"></div>
-          <div className="hero-signal"></div>
-      
-          <div className="container hero-content">
-            <div className="eyebrow">Delta Labs</div>
-      
-            <h1>Engineering <span>change.</span></h1>
-      
-            <p className="hero-copy">
-              We build AI, software, automation and intelligent business systems
-              designed to create measurable change.
-            </p>
-      
-            <div className="hero-actions">
-              <a className="button-primary" href="#contact">Start a project →</a>
-              <a className="button-secondary" href="#work">Explore our work</a>
+
+      <main id="top">
+        <section className="hero section-grid">
+          <div className="shell hero-layout">
+            <div className="hero-copy-block">
+              <div className="status-pill"><span /> AI-powered business systems</div>
+              <h1>Systems that make your business <em>move.</em></h1>
+              <p className="hero-lede">We design and build AI agents, automation and software that eliminate manual work, connect fragmented operations and create infrastructure for scale.</p>
+              <div className="hero-actions">
+                <a className="button button--blue" href="#assessment">Start a project <span>↗</span></a>
+                <a className="text-link" href="#systems">Explore our systems <span>↓</span></a>
+              </div>
+              <div className="hero-services" aria-label="Core services">
+                <span>AI agents</span><i />
+                <span>Automation</span><i />
+                <span>Software</span><i />
+                <span>Business systems</span>
+              </div>
             </div>
-      
-            <div className="hero-system" aria-hidden="true">
-              <span className="system-line one"></span>
-              <span className="system-line two"></span>
-              <span className="system-line three"></span>
-      
-              <span className="system-node left"></span>
-              <span className="system-node center"></span>
-              <span className="system-node right"></span>
-      
-              <span className="system-delta">
-                <svg viewBox="0 0 100 100">
-                  <path className="logo-delta" d="M50 13 L76 76 L24 76 Z"/>
-                  <path className="logo-delta" d="M50 31 L63 63 L37 63 Z"/>
-                </svg>
-              </span>
+
+            <div className="system-console" aria-label="Illustration of an integrated business system">
+              <div className="console-topline"><span>SYSTEM / 001</span><span className="live"><i /> OPERATIONAL</span></div>
+              <div className="console-stage">
+                <div className="system-card system-card--lead"><small>INPUT</small><strong>New lead</strong><span>Captured · Enriched</span></div>
+                <div className="system-card system-card--agent"><small>AI LAYER</small><strong>Qualification agent</strong><span>Context · Intent · Priority</span></div>
+                <div className="system-core"><DeltaMark /><span>DELTA CORE</span></div>
+                <div className="system-card system-card--crm"><small>OPERATION</small><strong>CRM + routing</strong><span>Owner · Stage · Follow-up</span></div>
+                <div className="system-card system-card--result"><small>OUTPUT</small><strong>Next action</strong><span>Fast · Tracked · Measurable</span></div>
+                <span className="flow-line flow-line--one" /><span className="flow-line flow-line--two" /><span className="flow-line flow-line--three" /><span className="flow-line flow-line--four" />
+              </div>
+              <div className="console-metrics"><div><span>Manual handoffs</span><strong>04 → 00</strong></div><div><span>Response mode</span><strong>AUTOMATIC</strong></div><div><span>System state</span><strong>CONNECTED</strong></div></div>
             </div>
           </div>
         </section>
-      
-        
-        <section id="capabilities" className="section capabilities">
-          <div className="container">
-      
-            <div className="section-header">
-              <div>
-                <div className="section-kicker">What we build</div>
-                <h2 className="section-title">Technology that changes how business works.</h2>
-              </div>
-      
-              <p className="section-description">
-                From intelligent agents to custom software, we connect technology,
-                data and operations into systems built for scale.
-              </p>
+
+        <section className="signal-strip">
+          <div className="shell signal-grid">
+            <p>Built for companies with real operations—not experiments without ownership.</p>
+            <div><strong>Business context</strong><span>before technology</span></div>
+            <div><strong>Measured outcomes</strong><span>over feature volume</span></div>
+            <div><strong>Systems thinking</strong><span>over isolated tools</span></div>
+          </div>
+        </section>
+
+        <section className="section problem-section" id="problem">
+          <div className="shell">
+            <div className="split-heading">
+              <div><span className="eyebrow">The operating gap</span><h2>Your business grew.<br />Its systems didn&apos;t.</h2></div>
+              <div className="heading-copy"><p>Manual work, disconnected tools and slow information flow quietly become infrastructure debt. More people get added, but the underlying operation stays difficult to scale.</p><a className="text-link" href="#assessment">Map the opportunity <span>↗</span></a></div>
             </div>
-      
-            <div className="capability-grid">
-      
-              <article className="capability-card">
-                <div className="card-number">01</div>
-                <div className="card-icon">AI</div>
-                <h3>AI Systems</h3>
-                <p>Intelligent agents, decision systems and AI workflows designed around real business logic.</p>
-              </article>
-      
-              <article className="capability-card">
-                <div className="card-number">02</div>
-                <div className="card-icon">⌘</div>
-                <h3>Software</h3>
-                <p>Custom platforms and business applications engineered around the way your operation actually works.</p>
-              </article>
-      
-              <article className="capability-card">
-                <div className="card-number">03</div>
-                <div className="card-icon">↗</div>
-                <h3>Automation</h3>
-                <p>Turn repetitive operations into intelligent workflows that move work without constant human intervention.</p>
-              </article>
-      
-              <article className="capability-card">
-                <div className="card-number">04</div>
-                <div className="card-icon">◈</div>
-                <h3>Business Systems</h3>
-                <p>Connect data, people, software and processes into one operational system.</p>
-              </article>
-      
-              <article className="capability-card">
-                <div className="card-number">05</div>
-                <div className="card-icon">Δ</div>
-                <h3>Digital Growth</h3>
-                <p>Performance and growth infrastructure that turns digital activity into measurable business outcomes.</p>
-              </article>
-      
-              <article className="capability-card">
-                <div className="card-number">06</div>
-                <div className="card-icon">+</div>
-                <h3>Custom Systems</h3>
-                <p>When an existing tool isn&apos;t enough, we engineer the system your business actually needs.</p>
-              </article>
-      
+            <div className="friction-grid">
+              <article><span>01</span><div className="friction-icon">↻</div><h3>Work repeats</h3><p>Your team spends hours moving data, updating records and following up manually.</p></article>
+              <article><span>02</span><div className="friction-icon">⌁</div><h3>Tools disconnect</h3><p>Important context sits across inboxes, spreadsheets, platforms and individual memory.</p></article>
+              <article><span>03</span><div className="friction-icon">…</div><h3>Decisions wait</h3><p>Leads, approvals and operational issues slow down because the next action is unclear.</p></article>
+              <article><span>04</span><div className="friction-icon">+</div><h3>Headcount absorbs it</h3><p>Growth requires more coordination instead of better leverage from the system underneath.</p></article>
             </div>
           </div>
         </section>
-      
-        
-        <section id="about" className="section delta-section">
-          <div className="container delta-layout">
-      
-            <div className="delta-visual" aria-hidden="true">
-              <svg viewBox="0 0 200 200">
-                <path className="logo-delta" d="M100 18 L164 158 L36 158 Z" strokeWidth="2"/>
-                <path className="logo-delta" d="M100 55 L132 128 L68 128 Z" strokeWidth="2"/>
-                <path className="logo-trace active" d="M64 82 H34 L22 70 H8"/>
-                <circle className="logo-node active" cx="8" cy="70" r="5"/>
-                <path className="logo-trace" d="M136 82 H166 L178 70 H192"/>
-                <circle className="logo-node" cx="192" cy="70" r="5"/>
-                <path className="logo-trace active" d="M100 158 V182"/>
-                <circle className="logo-node active" cx="100" cy="188" r="5"/>
-              </svg>
+
+        <section className="section solutions-section" id="solutions">
+          <div className="shell">
+            <div className="section-intro"><span className="eyebrow">What we engineer</span><h2>One operating problem.<br />The right system around it.</h2><p>We combine AI, automation and software according to the job—not according to the trend.</p></div>
+            <div className="solution-list">
+              {solutions.map((solution) => (
+                <article className="solution-row" key={solution.number}>
+                  <span className="solution-number">{solution.number}</span>
+                  <h3>{solution.name}</h3>
+                  <p>{solution.copy}</p>
+                  <div className="tag-list">{solution.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                  <span className="row-arrow">↗</span>
+                </article>
+              ))}
             </div>
-      
-            <div className="delta-copy">
-              <div className="section-kicker">The idea behind Delta</div>
-              <h2 className="section-title">Change is the product.</h2>
-      
-              <p>
-                In mathematics and science, Δ represents change — the difference
-                between one state and another.
-              </p>
-      
-              <p>
-                That&apos;s the principle behind Delta Labs. We don&apos;t build technology
-                for technology&apos;s sake. We engineer systems that move a business
-                from where it is to where it needs to be.
-              </p>
-      
-              <div className="delta-equation">
-                <strong>Δ</strong>
-                <span>Current state → engineered change → new state</span>
-              </div>
-            </div>
-      
           </div>
         </section>
-      
-        
-        <section id="work" className="section work">
-          <div className="container">
-      
-            <div className="section-header">
-              <div>
-                <div className="section-kicker">Selected systems</div>
-                <h2 className="section-title">Built around real problems.</h2>
-              </div>
-      
-              <p className="section-description">
-                A growing portfolio of software, automation and intelligent systems.
-              </p>
+
+        <section className="section systems-section section-grid" id="systems">
+          <div className="shell">
+            <div className="split-heading split-heading--light">
+              <div><span className="eyebrow">System demonstrations</span><h2>Show the work.<br />Not the buzzwords.</h2></div>
+              <p>Representative systems built around the operational problems Delta Labs is designed to solve. Each engagement is scoped to the real process, stack and outcome.</p>
             </div>
-      
-            <div className="work-grid">
-      
-              <article className="work-card">
-                <div className="work-visual">
-                  <div className="mini-system">
-                    <span className="mini-box"></span>
-                    <span className="mini-connector"></span>
-                    <span className="mini-box"></span>
-                    <span className="mini-connector"></span>
-                    <span className="mini-box"></span>
-                  </div>
+            <div className="showcase-grid">
+              <article className="showcase showcase--large">
+                <div className="showcase-label"><span>DEMO / 01</span><span>GROWTH OPERATIONS</span></div>
+                <div className="lead-engine">
+                  <div><small>01 · Capture</small><strong>Inquiry received</strong><span>Form · Ads · Email · Chat</span></div>
+                  <i>→</i><div><small>02 · Understand</small><strong>AI qualification</strong><span>Fit · Need · Urgency</span></div>
+                  <i>→</i><div><small>03 · Act</small><strong>Route + follow up</strong><span>CRM · Owner · Sequence</span></div>
                 </div>
-      
-                <div className="work-meta">
-                  <div>
-                    <h3>Intelligent Operations</h3>
-                    <p>Connected workflows that reduce manual work and give teams one operational layer.</p>
-                  </div>
-                  <span className="work-arrow">↗</span>
-                </div>
+                <div className="showcase-copy"><div><span className="eyebrow">Lead response engine</span><h3>Every inquiry understood, routed and followed up.</h3></div><p>Replaces slow manual triage with a connected response system that keeps context and ownership intact.</p></div>
               </article>
-      
-              <article className="work-card">
-                <div className="work-visual">
-                  <div className="mini-system">
-                    <span className="mini-box"></span>
-                    <span className="mini-connector"></span>
-                    <span className="mini-box"></span>
-                    <span className="mini-connector"></span>
-                    <span className="mini-box"></span>
-                  </div>
-                </div>
-      
-                <div className="work-meta">
-                  <div>
-                    <h3>AI Business Systems</h3>
-                    <p>Agents and automation designed to operate inside existing business processes.</p>
-                  </div>
-                  <span className="work-arrow">↗</span>
-                </div>
+              <article className="showcase">
+                <div className="showcase-label"><span>DEMO / 02</span><span>OPERATIONS</span></div>
+                <div className="ops-dashboard"><div className="ops-bars"><i /><i /><i /><i /><i /></div><div className="ops-list"><span><i /> Process healthy</span><span><i /> Exception assigned</span><span><i /> Report prepared</span></div></div>
+                <div className="showcase-copy showcase-copy--stack"><div><span className="eyebrow">Operations control center</span><h3>One view of work, exceptions and decisions.</h3></div><p>Connects fragmented operational data into a clear system for action.</p></div>
               </article>
-      
+              <article className="showcase showcase--blue">
+                <div className="showcase-label"><span>DEMO / 03</span><span>KNOWLEDGE</span></div>
+                <div className="knowledge-flow"><span>POLICY</span><span>PROJECTS</span><span>CLIENTS</span><strong>AI</strong><span>ANSWER</span></div>
+                <div className="showcase-copy showcase-copy--stack"><div><span className="eyebrow">Knowledge agent</span><h3>Answers grounded in the information your team trusts.</h3></div><p>Turns scattered internal knowledge into faster, more consistent support and decisions.</p></div>
+              </article>
             </div>
           </div>
         </section>
-      
-        
-        <section className="section">
-          <div className="container">
-      
-            <div className="section-header">
-              <div>
-                <div className="section-kicker">How we work</div>
-                <h2 className="section-title">From problem to production.</h2>
-              </div>
-      
-              <p className="section-description">
-                A practical engineering process focused on outcomes, not unnecessary complexity.
-              </p>
-            </div>
-      
-            <div className="process-grid">
-      
-              <article className="process-step">
-                <div className="process-number">01 / DISCOVER</div>
-                <h3>Understand</h3>
-                <p>Map the business problem, existing systems, constraints and desired outcome.</p>
-              </article>
-      
-              <article className="process-step">
-                <div className="process-number">02 / ENGINEER</div>
-                <h3>Build</h3>
-                <p>Design and develop the smallest system that can create meaningful change.</p>
-              </article>
-      
-              <article className="process-step">
-                <div className="process-number">03 / INTEGRATE</div>
-                <h3>Connect</h3>
-                <p>Put the system into the real workflow and connect it to the tools people already use.</p>
-              </article>
-      
-              <article className="process-step">
-                <div className="process-number">04 / SCALE</div>
-                <h3>Improve</h3>
-                <p>Measure, optimize and expand the system as the business evolves.</p>
-              </article>
-      
+
+        <section className="section method-section" id="method">
+          <div className="shell method-layout">
+            <div className="method-sticky"><span className="eyebrow">The Delta method</span><h2>From friction<br />to infrastructure.</h2><p>Experiment where uncertainty exists. Engineer where reliability matters. Deploy with ownership.</p><div className="delta-equation"><strong>Δ</strong><span>Current state → engineered change → new state</span></div></div>
+            <div className="method-steps">
+              <article><span>01 / MAP</span><h3>Find the leverage</h3><p>We study the workflow, people, tools and economics behind the problem. The output is a precise opportunity—not a generic AI recommendation.</p><small>Process map · Bottlenecks · Success measure</small></article>
+              <article><span>02 / ARCHITECT</span><h3>Design the system</h3><p>We define responsibilities, data flow, integrations, safeguards and the human decisions that should remain in the loop.</p><small>System design · Scope · Delivery plan</small></article>
+              <article><span>03 / BUILD</span><h3>Prove, then engineer</h3><p>We test the highest-risk assumptions early, then build the dependable software and automation around what works.</p><small>Prototype · Integrations · Production build</small></article>
+              <article><span>04 / COMPOUND</span><h3>Operate and improve</h3><p>After launch, we monitor performance, fix friction and extend the system as the business and its data mature.</p><small>Optimization · Support · New capability</small></article>
             </div>
           </div>
         </section>
-      
-        
-        <section id="labs" className="section labs">
-          <div className="container">
-      
-            <div className="lab-panel">
-              <div className="section-kicker">Inside the lab</div>
-      
-              <h2>We experiment with what comes next.</h2>
-      
-              <p>
-                Delta Labs is also where new systems begin — AI agents, automation
-                infrastructure, internal tools, business intelligence and experimental products.
-              </p>
-      
-              <div className="lab-tags">
-                <span className="lab-tag">AI Agents</span>
-                <span className="lab-tag">Automation</span>
-                <span className="lab-tag">Business Intelligence</span>
-                <span className="lab-tag">Internal Tools</span>
-                <span className="lab-tag">Experimental Products</span>
-                <span className="lab-tag">Growth Infrastructure</span>
-              </div>
+
+        <section className="section why-section" id="about">
+          <div className="shell">
+            <div className="section-intro"><span className="eyebrow">Why Delta Labs</span><h2>Business understanding<br />meets technical execution.</h2><p>We operate across growth, operations, software and AI—so the system is designed around the business outcome, not just the build ticket.</p></div>
+            <div className="why-grid">
+              <article><strong>01</strong><h3>Operators, not spectators</h3><p>Our perspective comes from practical work across marketing, lead generation, business development, software and automation.</p></article>
+              <article><strong>02</strong><h3>Integration-first thinking</h3><p>We look at the whole flow of work and data before recommending another disconnected tool.</p></article>
+              <article><strong>03</strong><h3>Built around the result</h3><p>Every system starts with a measurable operational target: less manual work, faster response, clearer decisions or better scale.</p></article>
+              <article><strong>04</strong><h3>Ownership after launch</h3><p>Documentation, support and ongoing improvement are part of creating infrastructure your company can rely on.</p></article>
             </div>
-      
+            <div className="fit-panel"><div><span className="eyebrow">Built for</span><h3>Companies with customers, operations and a real cost of inefficiency.</h3></div><div className="fit-tags"><span>Service businesses</span><span>Agencies</span><span>Technology companies</span><span>E-commerce</span><span>Growth-stage SMEs</span><span>Operational teams</span></div></div>
           </div>
         </section>
-      
-        
-        <section id="contact" className="final-cta">
-          <div className="container">
-            <div className="section-kicker">Start the change</div>
-            <h2>Have a problem worth engineering?</h2>
-            <p>
-              Tell us what isn&apos;t working. We&apos;ll help turn the problem into a system.
-            </p>
-            <a className="button-primary" href="mailto:hello@deltalabs.com">Start a conversation →</a>
+
+        <section className="section labs-section" id="labs">
+          <div className="shell labs-layout">
+            <div><span className="eyebrow">Inside the lab</span><h2>Building what businesses will operate on next.</h2><p>Delta Labs is a technology company in motion: client systems today, repeatable infrastructure and original products tomorrow.</p><a className="text-link" href="#assessment">Bring us a problem <span>↗</span></a></div>
+            <div className="lab-board">
+              <div className="lab-axis lab-axis--x" /><div className="lab-axis lab-axis--y" />
+              <span className="lab-node lab-node--one">AGENTS</span><span className="lab-node lab-node--two">AUTOMATION</span><span className="lab-node lab-node--three">SOFTWARE</span><span className="lab-node lab-node--four">PRODUCTS</span>
+              <div className="lab-core"><DeltaMark compact /><strong>DELTA</strong><small>EXPERIMENT → ENGINEER → DEPLOY</small></div>
+            </div>
           </div>
         </section>
-      
+
+        <section className="section faq-section" id="faq">
+          <div className="shell faq-layout"><div><span className="eyebrow">Common questions</span><h2>Before we build.</h2><p>Clear answers to the questions serious projects usually begin with.</p></div><div className="faq-list">{faqs.map(([question, answer], index) => <details key={question}><summary><span>{String(index + 1).padStart(2, "0")}</span>{question}<i>+</i></summary><p>{answer}</p></details>)}</div></div>
+        </section>
+
+        <section className="assessment-section section-grid" id="assessment">
+          <div className="shell assessment-layout">
+            <div className="assessment-copy"><span className="eyebrow">AI & automation opportunity assessment</span><h2>Bring us the process that should work better.</h2><p>Tell us where work slows down, repeats or gets lost. We&apos;ll review the opportunity and respond with the most sensible next step.</p><div className="assessment-points"><span><i>01</i> Initial opportunity review</span><span><i>02</i> Practical system direction</span><span><i>03</i> No generic AI sales pitch</span></div><a href="mailto:hello@deltalabs.com">hello@deltalabs.com ↗</a></div>
+            <OpportunityForm />
+          </div>
+        </section>
       </main>
-      
-      
-      <footer className="footer">
-        <div className="container footer-inner">
-          <div className="footer-brand">DELTA LABS</div>
-          <div className="footer-note">© 2026 Delta Labs. Engineering change.</div>
-        </div>
+
+      <footer className="site-footer">
+        <div className="shell footer-top"><div><a className="brand brand--footer" href="#top"><DeltaMark compact /><span className="wordmark">DELTA <span>LABS</span></span></a><p>AI-powered business systems.</p></div><div><span>Explore</span><a href="#solutions">Solutions</a><a href="#systems">Systems</a><a href="#method">Method</a><a href="#about">About</a></div><div><span>Start</span><a href="#assessment">Start a project</a><a href="mailto:hello@deltalabs.com">Email us</a></div></div>
+        <div className="shell footer-bottom"><span>© 2026 Delta Labs. Engineering change.</span><span>Pakistan · Serving international markets</span></div>
       </footer>
     </>
   );
