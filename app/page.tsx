@@ -116,8 +116,8 @@ export default function Home() {
           <div className="shell hero-layout">
             <motion.div className="hero-copy-block" variants={heroCopyVariants} initial="hidden" animate="visible">
               <motion.div className="status-pill" variants={heroItemVariants}><span /> Smarter systems for growing businesses</motion.div>
-              <motion.h1 variants={heroItemVariants}>Systems that make your business <em>move.</em></motion.h1>
-              <motion.p className="hero-lede" variants={heroItemVariants}>We build practical tools that save your team time, respond to customers faster and keep work moving without constant manual follow-up.</motion.p>
+              <motion.h1 variants={heroItemVariants}>AI automation and software that make your business <em>move.</em></motion.h1>
+              <motion.p className="hero-lede" variants={heroItemVariants}>Delta Labs builds AI agents, workflow automation and custom software that save your team time, connect your tools and keep work moving without constant manual follow-up.</motion.p>
               <motion.div className="hero-actions" variants={heroItemVariants}>
                 <motion.a className="button button--blue" href="#assessment" whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }}>Start a project <span>↗</span></motion.a>
                 <a className="text-link" href="#systems">Explore our portfolio <span>↓</span></a>
