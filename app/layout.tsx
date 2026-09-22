@@ -1,51 +1,76 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import "./globals.css";
+import { Navbar } from "./components/navbar";
 import { StructuredData } from "./structured-data";
 
-const siteName = "Delta Labs";
-const defaultTitle = "AI Automation & Custom Software | Delta Labs";
+const siteUrl = new URL("https://deltalabs.tech");
+const defaultTitle = "Custom Business Systems. Engineering Change. | Delta Labs";
 const defaultDescription =
-  "Delta Labs builds AI agents, workflow automation and custom software that reduce manual work, connect business systems and help growing teams scale.";
+  "Delta Labs designs and builds custom software, ERP systems and automation around the way your business actually works. Based in Pakistan, working internationally.";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "delta-labs-engineering-change.asharautomate.chatgpt.site";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
-  const base = new URL(`${protocol}://${host}`);
-  const canonical = new URL("/", base);
-
-  return {
-    metadataBase: base,
-    title: { default: defaultTitle, template: `%s | ${siteName}` },
-    description: defaultDescription,
-    applicationName: siteName,
-    alternates: { canonical },
-    robots: {
+export const metadata: Metadata = {
+  metadataBase: siteUrl,
+  title: { default: defaultTitle, template: "%s | Delta Labs" },
+  description: defaultDescription,
+  applicationName: "Delta Labs",
+  alternates: { canonical: "/" },
+  icons: { icon: "/icon.png" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
       index: true,
       follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    title: defaultTitle,
+    description: defaultDescription,
+    siteName: "Delta Labs",
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    images: [
+      {
+        url: new URL("/og.png", siteUrl).toString(),
+        width: 1536,
+        height: 1024,
+        alt: "Delta Labs — Engineering change through dependable business systems",
       },
-    },
-    openGraph: {
-      title: defaultTitle,
-      description: defaultDescription,
-      siteName,
-      type: "website",
-      locale: "en_US",
-      url: canonical,
-      images: [{ url: new URL("/og.png", base).toString(), width: 1536, height: 1024, alt: "Delta Labs AI automation and custom software" }],
-    },
-    twitter: { card: "summary_large_image", title: defaultTitle, description: defaultDescription, images: [new URL("/og.png", base).toString()] },
-    category: "technology",
-  };
-}
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [new URL("/og.png", siteUrl).toString()],
+  },
+  category: "technology",
+};
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><StructuredData />{children}</body></html>;
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased bg-[#0A0B0D] text-[#F0F2F5] font-body selection:bg-[#3B8BFF] selection:text-white min-h-screen flex flex-col">
+        <StructuredData />
+        <Navbar />
+        <div className="flex-1 w-full">{children}</div>
+      </body>
+    </html>
+  );
 }

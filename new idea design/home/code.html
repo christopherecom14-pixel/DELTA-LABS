@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Delta Labs | Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0647f9",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0f1423",
+                        "surface": "#ffffff",
+                        "text-main": "#111111",
+                        "muted": "#888888"
+                    },
+                    fontFamily: {
+                        "display": ["Syne", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem", 
+                        "lg": "0.25rem", 
+                        "xl": "0.5rem", 
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Syne', sans-serif;
+            background-color: theme('colors.background-light');
+            color: theme('colors.text-main');
+        }
+        
+        .kinetic-hover .reveal-text {
+            transform: translateY(100%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .kinetic-hover:hover .reveal-text {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .kinetic-hover img {
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: grayscale(0%);
+        }
+
+        .kinetic-hover:hover img {
+            filter: grayscale(100%) contrast(1.2);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+<!-- Shared TopNavBar (Included as it's the home/destination screen) -->
+<div class="fixed top-0 left-0 w-full z-50 bg-background-light/90 backdrop-blur-md border-b border-text-main/10">
+<div class="px-6 md:px-12 lg:px-24">
+<header class="flex items-center justify-between whitespace-nowrap py-4">
+<div class="flex items-center gap-4 text-text-main group cursor-pointer">
+<div class="w-6 h-6 transition-transform duration-300 group-hover:rotate-90">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-text-main text-xl font-bold tracking-tight">Delta Labs</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-text-main text-sm font-semibold tracking-wide uppercase hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-text-main text-sm font-semibold tracking-wide uppercase hover:text-primary transition-colors" href="#">Methodology</a>
+</nav>
+<button class="flex items-center justify-center rounded-sm h-12 px-6 bg-text-main text-surface text-sm font-bold tracking-wide uppercase transition-colors hover:bg-primary">
+<span>Start a Conversation</span>
+</button>
+</div>
+</header>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="min-h-screen flex items-end pb-24 pt-40 px-6 md:px-12 lg:px-24 relative">
+<div class="w-full">
+<h1 class="font-display font-extrabold text-[12vw] leading-[0.85] tracking-tighter text-text-main uppercase w-full">
+                We Build<br/>
+                Human-Centric<br/>
+                Systems.
+            </h1>
+</div>
+</section>
+<!-- Manifesto Section -->
+<section class="py-32 px-6 md:px-12 lg:px-24 border-t border-text-main/20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+<div class="lg:col-span-5 flex flex-col justify-between">
+<span class="text-sm font-bold uppercase tracking-widest text-muted mb-8 block">The Thesis</span>
+<div class="w-16 h-1 bg-text-main hidden lg:block"></div>
+</div>
+<div class="lg:col-span-7">
+<p class="text-2xl md:text-3xl lg:text-4xl font-medium leading-tight text-text-main">
+                    We don't just write code. We engineer high-leverage digital systems designed to amplify human potential. For founders and CTOs who demand strategic partnership over raw output, we deliver architecture that scales elegantly and interfaces that feel inevitable.
+                </p>
+<div class="mt-12">
+<a class="inline-flex items-center gap-3 text-lg font-bold uppercase tracking-wide group pb-1 border-b-2 border-text-main hover:border-primary hover:text-primary transition-colors" href="#">
+                        Explore Methodology
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Studies Section -->
+<section class="py-24">
+<div class="px-6 md:px-12 lg:px-24 mb-16">
+<span class="text-sm font-bold uppercase tracking-widest text-muted block mb-4">Selected Work</span>
+</div>
+<div class="flex flex-col gap-4 px-4 md:px-8">
+<!-- Case Study 1 -->
+<div class="relative w-full h-[614px] md:h-[819px] overflow-hidden group kinetic-hover cursor-pointer rounded-sm">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Abstract 3D architectural rendering showing complex interconnected glass structures in a minimalist white void with dramatic lighting, conveying a sense of advanced systems and scale." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYi-wNToue4Gzsm20LBEopz-6Jp3bcoj-4P9AlfuiP06s2rFRyuS-DOA7gG2JHcsQAfHVYRXPZDAUdW2bOXWK40JD9JnyJSgQrfQtwXsSku1N3tV1giIDGyLZzv-oPT0pJ9LaevgRnBfdpNrjXA8LD0IfpE8VWVwlu9XdPHZtoKQ0OOsexjhSs-Kt3sOYDD72iyiRIPzqOFhHZBvgn8-mF9iB7IH0BzAuHQaTuTqAg2ynzajvBvNus"/>
+<div class="absolute inset-0 bg-text-main/20 transition-opacity group-hover:opacity-60"></div>
+<div class="absolute inset-0 p-8 md:p-16 flex flex-col justify-end overflow-hidden">
+<div class="reveal-text">
+<span class="text-surface/80 text-sm md:text-base font-bold uppercase tracking-widest mb-4 block">Fintech Infrastructure</span>
+<h3 class="text-primary font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-none uppercase tracking-tighter">Aura Network</h3>
+</div>
+</div>
+</div>
+<!-- Case Study 2 -->
+<div class="relative w-full h-[614px] md:h-[819px] overflow-hidden group kinetic-hover cursor-pointer rounded-sm">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="High contrast macro photography of intricate mechanical watch movements mixed with modern circuit boards, styled in a stark, clean editorial look emphasizing precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1A2DYymcXlfuHsUxFJqy-XlgZmQ7qtFJP6gblHHIznZ85ulSG4dJUlK4lBtywjO5eh-wZkmVcabjlqQdo_avwkv2aCpGdmSB5HmGSQuMfj8lpmQIv1uyz50OPZwb7aYxJgEP4JkIH-5gXDhtfWbbA_fYp_TKFTMG9Hx9AXq8nn_q19d-0tZf77arTkmgEWPbxg9Q4MK8xcaI6p01v6qNGUNdjmTY2zRH1BPeLLELOfwXZ167mzLuL"/>
+<div class="absolute inset-0 bg-text-main/20 transition-opacity group-hover:opacity-60"></div>
+<div class="absolute inset-0 p-8 md:p-16 flex flex-col justify-end overflow-hidden">
+<div class="reveal-text">
+<span class="text-surface/80 text-sm md:text-base font-bold uppercase tracking-widest mb-4 block">Healthcare Logistics</span>
+<h3 class="text-primary font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-none uppercase tracking-tighter">Nexus Health</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Teaser -->
+<footer class="py-32 px-6 md:px-12 lg:px-24 bg-surface mt-24 border-t border-text-main/10 text-center">
+<h2 class="font-display font-bold text-4xl md:text-6xl mb-12">Ready to build?</h2>
+<button class="inline-flex items-center justify-center rounded-sm h-16 px-10 bg-text-main text-surface text-lg font-bold tracking-wide uppercase transition-all hover:bg-primary hover:scale-105">
+            Start a Conversation
+        </button>
+</footer>
+</body></html>
