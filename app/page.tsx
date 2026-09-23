@@ -319,7 +319,7 @@ export default function Home() {
             <div>
               <h2>What should<br />work <span>better?</span></h2>
               <p>Tell us about the process that slows your business down. You don&apos;t need a technical brief to start a useful conversation.</p>
-              <a className="text-link" href="mailto:hello@deltalabs.tech">hello@deltalabs.tech <span>↗</span></a>
+              <a className="text-link" href="mailto:subhan@deltalabs.tech">subhan@deltalabs.tech <span>↗</span></a>
             </div>
             <ContactForm hideHeading />
           </div>

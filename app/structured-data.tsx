@@ -16,7 +16,7 @@ export function StructuredData() {
           contentUrl: origin + "/delta-logo.png",
           caption: "Delta Labs",
         },
-        email: "hello@deltalabs.tech",
+        email: "subhan@deltalabs.tech",
         description:
           "Pakistan-based business systems engineering company that maps operational gaps and builds dependable software, workflows, and connected infrastructure.",
         areaServed: ["Pakistan", "International markets"],

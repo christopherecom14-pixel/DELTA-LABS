@@ -41,10 +41,10 @@ export default function ContactPage() {
             Let&apos;s Build Something
           </span>
           <a
-            href="mailto:hello@deltalabs.tech"
+            href="mailto:subhan@deltalabs.tech"
             className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white border-b-2 border-white hover:text-[#5c78ff] hover:border-[#5c78ff] transition-colors duration-300 break-all block py-2"
           >
-            hello@deltalabs.tech
+            subhan@deltalabs.tech
           </a>
           <p className="mt-4 sm:mt-8 text-xs sm:text-sm md:text-base text-[#9aa0ab] max-w-md leading-relaxed font-body">
             Direct access to our senior engineering leads. No account executives, no sales fluff.

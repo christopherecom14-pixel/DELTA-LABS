@@ -39,9 +39,9 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
       await new Promise((resolve) => setTimeout(resolve, 800));
 
       setSubmitted(true);
-      window.location.href = `mailto:hello@deltalabs.tech?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:subhan@deltalabs.tech?subject=${subject}&body=${body}`;
     } catch {
-      setErrorMessage("Something went wrong. Please email us directly at hello@deltalabs.tech");
+      setErrorMessage("Something went wrong. Please email us directly at subhan@deltalabs.tech");
     } finally {
       setIsSubmitting(false);
     }

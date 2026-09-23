@@ -78,10 +78,10 @@ export function Footer({ hideTeaser = false }: { hideTeaser?: boolean }) {
             </h4>
             <div className="space-y-3 sm:space-y-4">
               <a
-                href="mailto:hello@deltalabs.tech"
+                href="mailto:subhan@deltalabs.tech"
                 className="block font-display text-lg sm:text-xl md:text-2xl font-bold text-[#171a21] hover:text-[#2e4dff] transition-colors border-b border-[#171a21]/[0.08] pb-2 break-all"
               >
-                hello@deltalabs.tech
+                subhan@deltalabs.tech
               </a>
               <p className="font-mono text-[11px] sm:text-xs text-[#87909f] uppercase tracking-widest pt-1">
                 Pakistan-based · Local and international work
