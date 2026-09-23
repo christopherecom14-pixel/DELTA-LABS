@@ -12,8 +12,8 @@ export function StructuredData() {
         logo: {
           "@type": "ImageObject",
           "@id": origin + "/#logo",
-          url: origin + "/icon.png",
-          contentUrl: origin + "/icon.png",
+          url: origin + "/delta-logo.png",
+          contentUrl: origin + "/delta-logo.png",
           caption: "Delta Labs",
         },
         email: "hello@deltalabs.tech",

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: defaultDescription,
   applicationName: "Delta Labs",
   alternates: { canonical: "/" },
-  icons: { icon: "/icon.png" },
+  icons: { icon: "/icon.svg" },
   robots: {
     index: true,
     follow: true,
@@ -66,7 +66,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased bg-[#0A0B0D] text-[#F0F2F5] font-body selection:bg-[#3B8BFF] selection:text-white min-h-screen flex flex-col">
+      <body className="antialiased bg-[#fafbfc] text-[#171a21] font-body selection:bg-[#2e4dff] selection:text-white min-h-screen flex flex-col">
         <StructuredData />
         <Navbar />
         <div className="flex-1 w-full">{children}</div>

@@ -8,10 +8,7 @@ const eslintConfig = defineConfig([
   globalIgnores([
     ".next/**",
     "out/**",
-    "build/**",
-    "dist/**",
     ".claude/**",
-    "worker/**",
     "next-env.d.ts",
   ]),
   {

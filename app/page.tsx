@@ -74,6 +74,32 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="trust wrap">
+          <span className="trust-label">Trusted by teams building on Delta Labs</span>
+          <div className="trust-logos">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="4" /><path d="M8 13l3 3 5-7" /></svg>
+              Northfield & Co.
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="8" cy="12" r="5" /><circle cx="16" cy="12" r="5" /></svg>
+              Solace Systems
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M12 3l9 18H3Z" /></svg>
+              Vertex Ops
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="6" r="3" /><path d="M12 9v9M7 14a5 5 0 0 0 10 0" /></svg>
+              Anchorpoint
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M4 11 12 4l8 7" /><path d="M6 10v9h12v-9" /></svg>
+              Haven Retail
+            </span>
+          </div>
+        </section>
+
         <section id="approach" className="intro wrap section">
           <div className="section-index">01 / THE STARTING POINT</div>
           <AnimatedSection className="intro-grid">
@@ -162,41 +188,41 @@ export default function Home() {
             <div className="project-pair">
               <AnimatedSection as="article" className="project">
                 <div className="project-visual agency-visual">
-                  <div className="concept-label">ILLUSTRATIVE INTERFACE</div>
+                  <div className="concept-label">LIVE DELTA PRODUCT</div>
                   <div className="compact-screen">
                     <div className="screen-top">
-                      <span className="screen-brand">WORK / OPERATIONS</span>
-                      <span>↗</span>
+                      <span className="screen-brand">WORKLY24 / OPERATIONS</span>
+                      <a href="https://workly24.com" target="_blank" rel="noreferrer" aria-label="Visit Workly24">↗</a>
                     </div>
-                    <h4>From handoff<br />to clear ownership.</h4>
-                    <div className="kanban">
-                      <div><span>Planned</span><b>Project scope</b><b>Client brief</b></div>
-                      <div><span>In progress</span><b>System build</b><b>Team review</b></div>
-                      <div><span>Review</span><b>Delivery check</b></div>
+                    <h4>One base for the<br />whole software house.</h4>
+                    <div className="compact-modules">
+                      <div><span>Projects</span><b>Scoped & tracked</b></div>
+                      <div><span>People</span><b>Roles & capacity</b></div>
+                      <div><span>Clients</span><b>Accounts in view</b></div>
+                      <div><span>Finance</span><b>Invoices & runway</b></div>
                     </div>
                   </div>
                 </div>
                 <div className="project-info">
                   <div>
-                    <span className="tag">SOFTWARE BUSINESSES</span>
-                    <h3>An operating system for delivery.</h3>
+                    <span className="tag">SOFTWARE-HOUSE OPERATIONS</span>
+                    <h3>Workly24</h3>
                     <dl className="project-brief">
-                      <div><dt>The problem</dt><dd>Projects, people and client delivery need coordinated ownership.</dd></div>
-                      <div><dt>The system</dt><dd>A software-house ERP built around the delivery workflow.</dd></div>
+                      <div><dt>The problem</dt><dd>Projects, people, clients and company knowledge live in disconnected tools.</dd></div>
+                      <div><dt>The system</dt><dd>A connected operating platform bringing projects, people, clients, finance, and company knowledge into one base.</dd></div>
                     </dl>
                   </div>
                   <div className="project-meta">
-                    <span className="status">In development</span>
-                    <span>Business ERP</span>
+                    <span className="status status-live">Live product</span>
+                    <span>workly24.com</span>
                   </div>
                   <details className="project-detail">
                     <summary>Explore the system <b aria-hidden="true">＋</b></summary>
                     <div className="detail-body">
-                      <h4>Software-house system direction</h4>
-                      <p className="case-flow">Project scope → assigned ownership → delivery progress → review</p>
-                      <p>The aim is to make responsibilities and project context easier to follow across client work.</p>
-                      <p><strong>Current scope:</strong> A business ERP around projects, people and delivery coordination. Development is ongoing.</p>
-                      <a className="text-link" href="#contact">Discuss a similar problem ↗</a>
+                      <h4>Workly24 in use</h4>
+                      <p className="case-flow">Projects → people → clients → finance → company knowledge — one connected base</p>
+                      <p>Built for software companies running delivery across disconnected spreadsheets, chats and standalone tools. Workly24 keeps ownership, context and the numbers in one place.</p>
+                      <a className="text-link" href="https://workly24.com" target="_blank" rel="noreferrer">Visit Workly24 ↗</a>
                     </div>
                   </details>
                 </div>
@@ -275,6 +301,13 @@ export default function Home() {
               <p className="large">We are a Pakistan-based business systems engineering company, bringing business understanding and technical execution to the same table.</p>
               <p>Our work spans software, automation and AI. Our starting point stays the same: understand the business, identify what needs to change, and engineer the system that gets it there.</p>
               <p>The delta is the difference between how work happens today and how it could happen tomorrow.</p>
+              <div className="about-founder">
+                <img src="/team/subhan.jpg" alt="Muhammad Subhan, Founder & CEO of Delta Labs" />
+                <div>
+                  <strong>Muhammad Subhan</strong>
+                  <span>Founder & CEO, Delta Labs</span>
+                </div>
+              </div>
               <span className="about-sign">DELTA LABS / ENGINEERING CHANGE.</span>
             </div>
           </div>

@@ -49,30 +49,30 @@ const FAQS = [
 
 export default function MethodologyPage() {
   return (
-    <main className="w-full overflow-x-hidden">
+    <main className="w-full overflow-x-hidden bg-[#fafbfc]">
       <section className="pt-24 sm:pt-32 md:pt-40 lg:pt-48 pb-16 sm:pb-20 md:pb-32 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-24 relative">
           {/* Left Sticky Column */}
           <div className="lg:col-span-5 relative">
             <div className="lg:sticky lg:top-36 flex flex-col gap-4 sm:gap-6 md:gap-8">
               <div className="flex items-center gap-3 sm:gap-4">
-                <div className="h-[1px] w-8 sm:w-12 bg-[#111318]" />
-                <span className="text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-[#1665ff] font-body">
+                <div className="h-[1px] w-8 sm:w-12 bg-[#171a21]" />
+                <span className="text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-[#2e4dff] font-body">
                   Methodology & Philosophy
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold leading-tight sm:leading-[1.02] tracking-tight text-[#111318] uppercase">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold leading-tight sm:leading-[1.02] tracking-tight text-[#171a21] uppercase">
                 Before we write a single line of code, we align on human impact.
               </h1>
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#68717e] leading-relaxed font-body">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#636873] leading-relaxed font-body">
                 Technology is a multiplier, but only if applied to the right bottleneck. We partner directly with founders and CTOs to ensure every dollar spent builds compounding operational leverage.
               </p>
 
-              <div className="p-4 sm:p-6 bg-[#ffffff] border border-[#111318]/15 rounded-[4px] mt-2 sm:mt-4 shadow-xs">
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-[#1665ff] block mb-1.5 sm:mb-2">
+              <div className="p-4 sm:p-6 bg-white border border-[#171a21]/15 rounded-[4px] mt-2 sm:mt-4 shadow-xs">
+                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-[#2e4dff] block mb-1.5 sm:mb-2">
                   The Delta Framework
                 </span>
-                <div className="text-base sm:text-xl md:text-2xl font-display font-bold text-[#111318]">
+                <div className="text-base sm:text-xl md:text-2xl font-display font-bold text-[#171a21]">
                   Δ Experiment → Test → Finalize → Ship
                 </div>
               </div>
@@ -80,7 +80,7 @@ export default function MethodologyPage() {
           </div>
 
           {/* Right Scrollable Column (Accordion FAQ) */}
-          <div className="lg:col-span-7 flex flex-col border-t border-[#111318]">
+          <div className="lg:col-span-7 flex flex-col border-t border-[#171a21]">
             {FAQS.map((faq) => (
               <AccordionItem
                 key={faq.question}

@@ -51,24 +51,24 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
     <div className="w-full max-w-xl p-4 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center">
       {!hideHeading && (
         <div className="mb-6 sm:mb-8 md:mb-10">
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold text-[#1665ff] block mb-1.5 sm:mb-2">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold text-[#2e4dff] block mb-1.5 sm:mb-2">
             Project Intake
           </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-[#111318] uppercase">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-[#171a21] uppercase">
             Inquiry
           </h2>
         </div>
       )}
 
       {submitted ? (
-        <div className="p-6 sm:p-8 bg-[#f4f6f8] border border-[#111318] rounded-[4px] space-y-4 animate-in fade-in duration-300">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1665ff] text-[#ffffff] flex items-center justify-center font-bold text-lg sm:text-xl shadow-sm">
+        <div className="p-6 sm:p-8 bg-[#f0f3f8] border border-[#171a21] rounded-[4px] space-y-4 animate-in fade-in duration-300">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#2e4dff] text-[#ffffff] flex items-center justify-center font-bold text-lg sm:text-xl shadow-sm">
             ✓
           </div>
-          <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#111318]">
+          <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#171a21]">
             Inquiry Dispatched
           </h3>
-          <p className="text-[#68717e] text-xs sm:text-sm leading-relaxed font-body">
+          <p className="text-[#636873] text-xs sm:text-sm leading-relaxed font-body">
             Thank you for reaching out. We will review your requirements and respond within 24 hours.
           </p>
           <button
@@ -79,7 +79,7 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
               setEmail("");
               setMessage("");
             }}
-            className="mt-3 sm:mt-4 text-xs font-bold uppercase tracking-widest text-[#1665ff] hover:underline cursor-pointer"
+            className="mt-3 sm:mt-4 text-xs font-bold uppercase tracking-widest text-[#2e4dff] hover:underline cursor-pointer"
           >
             Send another inquiry →
           </button>
@@ -90,7 +90,7 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
           <div className="relative flex flex-col group">
             <label
               htmlFor="name"
-              className="text-[11px] sm:text-xs font-bold text-[#68717e] uppercase tracking-[0.18em] mb-1.5"
+              className="text-[11px] sm:text-xs font-bold text-[#636873] uppercase tracking-[0.18em] mb-1.5"
             >
               Full Name
             </label>
@@ -101,7 +101,7 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="John Doe"
-              className="minimal-input w-full bg-transparent border-0 border-b-2 border-[#111318] py-2 sm:py-2.5 px-0 focus:ring-0 placeholder:text-[#68717e]/40 font-body text-[#111318]"
+              className="minimal-input w-full bg-transparent border-0 border-b-2 border-[#171a21] py-2 sm:py-2.5 px-0 focus:ring-0 placeholder:text-[#636873]/40 font-body text-[#171a21]"
             />
           </div>
 
@@ -109,7 +109,7 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
           <div className="relative flex flex-col group">
             <label
               htmlFor="email"
-              className="text-[11px] sm:text-xs font-bold text-[#68717e] uppercase tracking-[0.18em] mb-1.5"
+              className="text-[11px] sm:text-xs font-bold text-[#636873] uppercase tracking-[0.18em] mb-1.5"
             >
               Email Address
             </label>
@@ -120,7 +120,7 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="john@example.com"
-              className="minimal-input w-full bg-transparent border-0 border-b-2 border-[#111318] py-2 sm:py-2.5 px-0 focus:ring-0 placeholder:text-[#68717e]/40 font-body text-[#111318]"
+              className="minimal-input w-full bg-transparent border-0 border-b-2 border-[#171a21] py-2 sm:py-2.5 px-0 focus:ring-0 placeholder:text-[#636873]/40 font-body text-[#171a21]"
             />
           </div>
 
@@ -128,7 +128,7 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
           <div className="relative flex flex-col group">
             <label
               htmlFor="service"
-              className="text-[11px] sm:text-xs font-bold text-[#68717e] uppercase tracking-[0.18em] mb-1.5"
+              className="text-[11px] sm:text-xs font-bold text-[#636873] uppercase tracking-[0.18em] mb-1.5"
             >
               Area of Interest
             </label>
@@ -136,7 +136,7 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
               id="service"
               value={service}
               onChange={(e) => setService(e.target.value)}
-              className="minimal-input w-full bg-transparent border-0 border-b-2 border-[#111318] py-2 sm:py-2.5 px-0 focus:ring-0 font-body text-[#111318] cursor-pointer"
+              className="minimal-input w-full bg-transparent border-0 border-b-2 border-[#171a21] py-2 sm:py-2.5 px-0 focus:ring-0 font-body text-[#171a21] cursor-pointer"
             >
               <option value="System Architecture & AI">System Architecture & AI Agents</option>
               <option value="Workflow Automation">Workflow Automation & Integration</option>
@@ -149,7 +149,7 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
           <div className="relative flex flex-col group">
             <label
               htmlFor="message"
-              className="text-[11px] sm:text-xs font-bold text-[#68717e] uppercase tracking-[0.18em] mb-1.5"
+              className="text-[11px] sm:text-xs font-bold text-[#636873] uppercase tracking-[0.18em] mb-1.5"
             >
               Project Details
             </label>
@@ -160,7 +160,7 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Tell us about what you want to build or automate..."
-              className="minimal-input w-full bg-transparent border-0 border-b-2 border-[#111318] py-2 sm:py-2.5 px-0 focus:ring-0 placeholder:text-[#68717e]/40 resize-none font-body text-[#111318]"
+              className="minimal-input w-full bg-transparent border-0 border-b-2 border-[#171a21] py-2 sm:py-2.5 px-0 focus:ring-0 placeholder:text-[#636873]/40 resize-none font-body text-[#171a21]"
             />
           </div>
 
@@ -174,7 +174,7 @@ export function ContactForm({ hideHeading = false }: { hideHeading?: boolean }) 
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full h-13 sm:h-16 md:h-18 bg-[#1665ff] text-[#ffffff] text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.18em] rounded-[3px] flex items-center justify-center gap-3 transition-all duration-300 hover:bg-[#111318] cursor-pointer shadow-md ${
+            className={`w-full h-13 sm:h-16 md:h-18 bg-[#2e4dff] text-[#ffffff] text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.18em] rounded-[3px] flex items-center justify-center gap-3 transition-all duration-300 hover:bg-[#171a21] cursor-pointer shadow-md ${
               isSubmitting ? "loading-pulse pointer-events-none" : ""
             }`}
           >
