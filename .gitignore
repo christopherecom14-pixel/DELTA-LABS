@@ -37,10 +37,14 @@ yarn-error.log*
 
 # typescript
 next-env.d.ts
+*.tsbuildinfo
 /dist/
 /.wrangler/
 /outputs/
 /work/
+
+# Claude Code local tooling config (not project source)
+/.claude/
 
 # Isolated third-party production tools (separate repositories/licenses)
 /external/openmontage/
