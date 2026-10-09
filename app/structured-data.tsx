@@ -66,7 +66,7 @@ export function StructuredData() {
         description,
         provider: { "@id": origin + "/#organization" },
         areaServed: ["Pakistan", "International markets"],
-        url: origin + "/services",
+        url: origin + "/",
       })),
     ],
   };

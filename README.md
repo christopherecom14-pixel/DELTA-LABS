@@ -26,7 +26,7 @@ Visit `http://localhost:3000`.
 ## Structure
 
 - `app/page.tsx` — home page (light-theme redesign)
-- `app/services/`, `app/methodology/`, `app/contact/` — secondary pages
+- `app/contact/` — contact page
 - `app/components/` — shared UI components
 - `app/components/home/` — home-page-only interactive components (header,
   workflow comparison, scroll-tracked method diagram, footer)

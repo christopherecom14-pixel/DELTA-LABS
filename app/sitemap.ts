@@ -11,7 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     requestHeaders.get("x-forwarded-proto") ??
     (host.includes("localhost") ? "http" : "https");
 
-  const routes = ["", "/services", "/methodology", "/contact", "/careers/internships"];
+  const routes = ["", "/contact", "/careers/internships"];
 
   return routes.map((route) => ({
     url: `${protocol}://${host}${route}`,
