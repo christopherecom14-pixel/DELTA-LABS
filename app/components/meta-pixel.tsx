@@ -13,7 +13,7 @@ export function MetaPixelPageViews() {
       isFirstRender.current = false;
       return;
     }
-    window.fbq?.("track", "PageView");
+    if (!pathname.startsWith("/admin")) window.fbq?.("track", "PageView");
   }, [pathname]);
 
   return null;
