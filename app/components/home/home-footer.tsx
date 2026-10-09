@@ -10,6 +10,7 @@ export function HomeFooter() {
         </svg>
       </a>
       <span>Engineering change.</span>
+      <a href="/careers/internships">Careers</a>
       <span>© {new Date().getFullYear()} Delta Labs</span>
       <a href="#">Back to top ↑</a>
     </footer>

@@ -67,6 +67,7 @@ export function Footer({ hideTeaser = false }: { hideTeaser?: boolean }) {
               <li><Link href="/" className="hover:text-[#171a21] transition-colors block py-0.5">Home</Link></li>
               <li><Link href="/services" className="hover:text-[#171a21] transition-colors block py-0.5">Systems & Capabilities</Link></li>
               <li><Link href="/methodology" className="hover:text-[#171a21] transition-colors block py-0.5">The Delta Method</Link></li>
+              <li><Link href="/careers/internships" className="hover:text-[#171a21] transition-colors block py-0.5">Careers & Internships</Link></li>
               <li><Link href="/contact" className="hover:text-[#171a21] transition-colors block py-0.5">Map the Operational Gap</Link></li>
             </ul>
           </div>

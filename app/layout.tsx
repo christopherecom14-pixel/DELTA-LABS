@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { AttributionCapture } from "./components/attribution-capture";
+import { GoogleAnalytics } from "./components/google-analytics";
 import { Navbar } from "./components/navbar";
 import { StructuredData } from "./structured-data";
+import { MetaPixelPageViews } from "./components/meta-pixel";
+import { META_PIXEL_ID, metaPixelSnippet } from "./components/meta-pixel-snippet";
 
 const siteUrl = new URL("https://deltalabs.tech");
 const defaultTitle = "Custom Business Systems. Engineering Change. | Delta Labs";
@@ -49,6 +53,9 @@ export const metadata: Metadata = {
     images: [new URL("/og.png", siteUrl).toString()],
   },
   category: "technology",
+  verification: {
+    other: { "facebook-domain-verification": "26jofq6zyicc4k06qon2ydf84um0k1" },
+  },
 };
 
 export default function RootLayout({
@@ -57,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -65,11 +72,25 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap"
           rel="stylesheet"
         />
+        <script dangerouslySetInnerHTML={{ __html: metaPixelSnippet }} />
+        <GoogleAnalytics />
       </head>
       <body className="antialiased bg-[#fafbfc] text-[#171a21] font-body selection:bg-[#2e4dff] selection:text-white min-h-screen flex flex-col">
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
+        <MetaPixelPageViews />
         <StructuredData />
         <Navbar />
         <div className="flex-1 w-full">{children}</div>
+        <AttributionCapture />
       </body>
     </html>
   );

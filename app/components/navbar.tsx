@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Systems" },
   { href: "/methodology", label: "Method" },
+  { href: "/careers/internships", label: "Careers" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -44,8 +45,8 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  if (pathname === "/") {
-    // The home page ships its own header (see HomeHeader).
+  if (pathname === "/" || pathname.startsWith("/admin")) {
+    // The home page ships its own header (see HomeHeader); admin has its own shell.
     return null;
   }
 
@@ -67,6 +68,7 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    aria-current={isActive ? "page" : undefined}
                     className={`text-xs uppercase tracking-[0.15em] font-semibold transition-colors duration-200 relative py-1 ${
                       isActive
                         ? "text-[#2e4dff] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#2e4dff] after:rounded-full"

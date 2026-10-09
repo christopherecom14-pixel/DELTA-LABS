@@ -33,3 +33,13 @@ Visit `http://localhost:3000`.
 - `app/globals.css` — global styles; the home page's design system lives
   under the `.home` scope so it doesn't affect the other pages
 - `public/` — static assets (brand marks, hero image, team photos)
+
+## Internship recruitment
+
+- `/careers/internships` — public landing page and 6-step application form
+- `/admin/recruitment` — applicant dashboard (sign-in required)
+- `lib/recruitment/` — shared config (departments, questions, pipeline, scoring) and validation
+- `lib/server/` — MongoDB, auth, CV storage, rate limiting, email
+- `scripts/create-admin.mjs` — create the first admin user
+
+Setup, deployment and the test checklist: see [RECRUITMENT.md](RECRUITMENT.md).
