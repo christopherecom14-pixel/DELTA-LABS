@@ -221,7 +221,7 @@ body {
 .home nav { display: flex; align-items: center; gap: 18px; font-size: 14px; font-weight: 550; }
 .home nav > a { position: relative; padding: 12px 0; }
 .home nav > a:hover { color: var(--blue); }
-.home nav > a[aria-current="location"] { color: var(--blue); }
+.home nav > a[aria-current="location"], .home nav > a[aria-current="page"] { color: var(--blue); }
 .home nav > a:not(.nav-cta)::after {
   content: '';
   position: absolute;
@@ -234,7 +234,7 @@ body {
   transform-origin: left;
   transition: transform .2s;
 }
-.home nav > a[aria-current="location"]::after { transform: scaleX(1); }
+.home nav > a[aria-current="location"]::after, .home nav > a[aria-current="page"]::after { transform: scaleX(1); }
 .home .nav-cta { border: 1px solid var(--line); padding: 12px 18px; border-radius: 4px; min-height: 44px; }
 .home .nav-cta span { margin-left: 18px; transition: transform .2s; }
 .home .nav-cta:hover span { transform: translate(2px, -2px); }

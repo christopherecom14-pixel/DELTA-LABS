@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Footer } from "../../components/footer";
+import { HomeHeader } from "../../components/home/home-header";
 import { DEPARTMENTS, OPPORTUNITY, formatPkr } from "@/lib/recruitment/config";
 import { ApplicationForm, StipendCard } from "./_components/application-form";
 import { ApplyLink, InternshipPageView } from "./_components/tracking";
@@ -91,12 +92,18 @@ const eyebrow = "flex items-center gap-3 text-[11px] sm:text-xs font-semibold up
 
 export default function InternshipsPage() {
   return (
-    <main className="w-full overflow-x-hidden bg-[#fafbfc] text-[#171a21]">
+    <>
+    {/* Same header as the home page. display:contents keeps the .home styles
+        scoped to the header without boxing it, so it still sticks on scroll. */}
+    <div className="home" style={{ display: "contents" }}>
+      <HomeHeader />
+    </div>
+    <main id="main-content" className="w-full overflow-x-hidden bg-[#fafbfc] text-[#171a21]">
       <InternshipPageView />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd()).replace(/</g, "\\u003c") }} />
 
       {/* Hero */}
-      <section className={`${wrap} pt-24 sm:pt-32 lg:pt-36 pb-12 sm:pb-16`}>
+      <section className={`${wrap} pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16`}>
         <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] gap-10 lg:gap-16 items-end">
           <div>
             <p className={eyebrow}>
@@ -140,7 +147,7 @@ export default function InternshipsPage() {
       </section>
 
       {/* Departments */}
-      <section id="departments" className="scroll-mt-20 border-t border-[#dfe2e9] bg-[#f0f2f6]">
+      <section id="departments" className="scroll-mt-[84px] border-t border-[#dfe2e9] bg-[#f0f2f6]">
         <div className={`${wrap} py-16 sm:py-20`}>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
             <div>
@@ -220,7 +227,7 @@ export default function InternshipsPage() {
       </section>
 
       {/* Application */}
-      <section id="apply" className="scroll-mt-16 sm:scroll-mt-20 bg-[#e9eeff]/60 border-b border-[#dfe2e9]">
+      <section id="apply" className="scroll-mt-[84px] bg-[#e9eeff]/60 border-b border-[#dfe2e9]">
         <div className={`${wrap} py-16 sm:py-20`}>
           <div className="grid lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] gap-10 lg:gap-14">
             <div className="lg:sticky lg:top-28 self-start">
@@ -282,5 +289,6 @@ export default function InternshipsPage() {
 
       <Footer hideTeaser />
     </main>
+    </>
   );
 }

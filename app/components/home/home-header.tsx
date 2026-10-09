@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const LINKS = [
@@ -8,11 +10,21 @@ const LINKS = [
   { href: "#about", label: "The lab", sectionId: "about" },
 ];
 
+const CAREERS_HREF = "/careers/internships";
+
+/**
+ * Site header used on the home page and the careers page. On other pages the
+ * home section links point back to "/#section".
+ */
 export function HomeHeader() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const onCareers = pathname.startsWith("/careers");
   const [open, setOpen] = useState(false);
-  const [activeId, setActiveId] = useState("approach");
+  const [activeId, setActiveId] = useState(isHome ? "approach" : "");
 
   useEffect(() => {
+    if (!isHome) return;
     const sectionIds = ["approach", "method", "work", "about", "contact"];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
@@ -33,7 +45,7 @@ export function HomeHeader() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     if (open) {
@@ -46,30 +58,35 @@ export function HomeHeader() {
     };
   }, [open]);
 
+  const sectionHref = (hash: string) => (isHome ? hash : `/${hash}`);
+
   return (
     <>
       <a className="skip" href="#main-content">Skip to content</a>
       <div className="reading-progress" aria-hidden="true" />
       <header className="header">
-        <a className="brand" href="#" aria-label="Delta Labs home" onClick={() => setOpen(false)}>
+        <Link className="brand" href={isHome ? "#" : "/"} aria-label="Delta Labs home" onClick={() => setOpen(false)}>
           <svg className="brand-lockup" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 108" width="205" height="60" aria-hidden="true">
             <path d="M49 8 13 73h24L62 28Z" fill="currentColor" />
             <path d="m65 35-12 22 10 17H43L31 94h66Z" fill="currentColor" />
             <text x="126" y="61" fontFamily="Arial,Helvetica,sans-serif" fontWeight="700" fontSize="31" letterSpacing="1.1" fill="currentColor">DELTA LABS</text>
           </svg>
-        </a>
+        </Link>
         <nav aria-label="Main navigation" id="navigation" className={open ? "open" : ""}>
           {LINKS.map((link) => (
             <a
               key={link.href}
-              href={link.href}
-              aria-current={activeId === link.sectionId ? "location" : undefined}
+              href={sectionHref(link.href)}
+              aria-current={isHome && activeId === link.sectionId ? "location" : undefined}
               onClick={() => setOpen(false)}
             >
               {link.label}
             </a>
           ))}
-          <a className="nav-cta" href="#contact" onClick={() => setOpen(false)}>
+          <Link href={CAREERS_HREF} aria-current={onCareers ? "page" : undefined} onClick={() => setOpen(false)}>
+            Careers
+          </Link>
+          <a className="nav-cta" href={sectionHref("#contact")} onClick={() => setOpen(false)}>
             Bring us a problem <span>↗</span>
           </a>
         </nav>

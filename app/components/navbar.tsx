@@ -43,8 +43,8 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  if (pathname === "/" || pathname.startsWith("/admin")) {
-    // The home page ships its own header (see HomeHeader); admin has its own shell.
+  if (pathname === "/" || pathname.startsWith("/careers") || pathname.startsWith("/admin")) {
+    // Home and careers use HomeHeader; admin has its own shell.
     return null;
   }
 

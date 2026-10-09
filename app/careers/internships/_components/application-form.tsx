@@ -315,7 +315,7 @@ export function ApplicationForm() {
 
   if (status === "success") {
     return (
-      <div ref={formTop} className="scroll-mt-28">
+      <div ref={formTop} className="scroll-mt-[100px]">
         <SuccessPanel reference={reference} department={state.career.department} headingRef={stepHeading} />
       </div>
     );
@@ -326,7 +326,7 @@ export function ApplicationForm() {
   const errorCount = Object.keys(errors).length;
 
   return (
-    <div ref={formTop} className="scroll-mt-24 sm:scroll-mt-28">
+    <div ref={formTop} className="scroll-mt-[100px]">
       <Progress step={step} onJump={(i) => i < step && goTo(i)} />
 
       {restored && (
